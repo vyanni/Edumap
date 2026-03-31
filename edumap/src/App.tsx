@@ -2,32 +2,18 @@ import { useState, useEffect } from 'react'
 import './index.css'
 import './GlobalStyles/App.css'
 import LandingPage from './LandingPage/LandingPage.tsx'
-import { Background, Panel } from 'reactflow'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ThemeToggle from './Components/ThemeToggle.tsx'
+import ToggleLogic from './Hooks/ToggleLogic.tsx'
 import BackgroundNorm from './Components/BackgroundNorm.tsx'
+import PlanningPage from './PlanningPage/PlanningPage.tsx'
+import PageWrapper from './PageWrapper.tsx'
 
 function App() {
-    const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>(() =>{
-       const cachedTheme = localStorage.getItem('theme')
-       if(cachedTheme === 'light' || cachedTheme === 'dark') return cachedTheme
-       
-       const darkPreference = window.matchMedia('(prefers-color-scheme: dark)').matches;
-       return darkPreference ? 'dark' : 'light'; 
-    });
-
-    useEffect(() => {
-      localStorage.setItem('theme', currentTheme);
-      
-      if (currentTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    }, [currentTheme]);
+    const {currentTheme, setCurrentTheme} = ToggleLogic();
 
   return (
-    <div>
+    <PageWrapper>
       <BackgroundNorm Theme={currentTheme} />
       <ThemeToggle  
       Theme = {currentTheme}
@@ -37,9 +23,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<LandingPage/>}/>
+          <Route path='/planning' element={<PlanningPage/>}/>
         </Routes>
       </BrowserRouter>
-    </div>
+    </PageWrapper>
   )
 }
 
