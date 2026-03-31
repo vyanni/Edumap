@@ -9,7 +9,7 @@ function ThemeToggle({Theme, setTheme}: ThemeProp) {
     const isDark = (Theme === 'dark'); 
 
     return (
-        <div className={`flex flex-row m-8`}>
+        <div className={`flex flex-row absolute m-8 z-50`}>
             <label className={`${themeAnimation.togglePill}`}>
             <input 
                 type='checkbox'
