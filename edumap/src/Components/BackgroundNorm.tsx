@@ -3,13 +3,12 @@ interface currentBackground{
 }
 
 function BackgroundNorm({Theme}: currentBackground) {
-    const currentBackground = (Theme === 'dark' ? "url('/PatternImageDarkSmall.png')" : "url('/PatternImageLightSmall.png')")
+    const currentBackground = Theme === 'dark' 
+    ? "bg-[#141C1E]" 
+    : "bg-white";
 
   return (
-    <div 
-        className={`fixed inset-0 -z-10 bg-repeat ease-in-out`}
-        style={{backgroundImage: currentBackground}}
-    />
+    <div className={`fixed inset-0 -z-10 bg-repeat transition-out duration-1000 ease-in-out ${currentBackground}`}/>
   )
 }
 
