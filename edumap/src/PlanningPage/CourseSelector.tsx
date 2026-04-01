@@ -6,7 +6,19 @@ const programsList = [
     'Computer Science',
     'Biomedical Engineering',
     'Mechatronics',
-    'Theology'
+    'Theology',
+    'English',
+    'History',
+    'Animal Biology',
+    'Life Science',
+    'Overflow Test',
+    'Overflow Test',
+    'Overflow Test',
+    'Overflow Test',
+    'Overflow Test',
+    'Overflow Test',
+    'Overflow Test',
+    'Overflow Test',
 ]
 
 function CourseSelector(){
@@ -46,16 +58,16 @@ function CourseSelector(){
     };
 
     return (
-    <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 z-20 w-auto justify-center flex`}>
+    <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 z-20 w-full justify-center flex`}>
         <div 
-            className={`relative bg-white dark:bg-[#394345] dark:border-none w-96 h-30 rounded-xl 
-                        border-gray-300 shadow-sm p-4 border`}
+            className={`relative bg-white dark:bg-[#394345] dark:border-none w-1/2 h-30 rounded-xl 
+                        border-gray-300 shadow-sm p-4 border flex flex-row`}
             ref={dropDownReference}
         >
-            <p>Select your Program</p>  
+            <p className={`mt-1`}>Select your Program</p>  
             <br/> 
 
-            <div className={`relative w-full flex flex-row mt-0`}>
+            <div className={`relative ml-8 w-2/3 flex flex-row mt-0`}>
                 <input
                 type="text"
                 className={`w-full p-2 bg-white border border-gray-300 rounded-xl shadow-sm 
@@ -67,7 +79,7 @@ function CourseSelector(){
                 />
             
                 {isDropDownOpen && (
-                    <div className={`absolute z-10 w-full left-0 top-full bg-white border border-gray-100 flex flex-col
+                    <div className={`absolute z-10 w-full left-0 bottom-full mb-2 bg-white border border-gray-100 flex flex-col
                         shadow-lg max-h-60 overflow-y-auto animate-in rounded-lg fade-in slide-in-from-top-1`}>
                     
                         {filteredPrograms.length > 0 ? (
@@ -75,7 +87,7 @@ function CourseSelector(){
                                 <button 
                                     className={`w-full text-center text-sm transition-colors
                                         ${selectedProgram === program ? 'bg-gray-100 font-medium' : 'hover:bg-gray-50'}
-                                        `}
+                                        cursor-pointer`}
                                     onClick={() => handleSelection(program)}
                                 > {program} 
                                 </button>
