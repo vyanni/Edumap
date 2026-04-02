@@ -1,5 +1,5 @@
 function RightDescriptionPanel({courseData}: CourseInfo){
-    return ()
+    return (  );
 }
 
 export default RightDescriptionPanel
