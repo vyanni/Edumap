@@ -1,12 +1,28 @@
-import type { NodeProps, Handle, Position, useNodeConnections } from '@xyflow/react'
+import { type NodeProps, Handle, Position} from '@xyflow/react'
 
-function CourseCard({id, data}: NodeProps){
-
-    return (
-        <div className="w-full h-full border-2 border-dashed border-slate-300 rounded-xl bg-slate-50/50 p-2">
-            <div className="text-slate-400 font-black italic text-xl uppercase">{data.label}</div>
+function CourseCard({data}: NodeProps){
+      return (
+        <div className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow min-w-[280px] group">
+          {/* Target handle (Left) */}
+          <Handle 
+            type="target" 
+            position={Position.Left} 
+            className="w-3 h-3 bg-zinc-300 border-2 border-white dark:border-zinc-800 opacity-0 group-hover:opacity-100 transition-opacity" 
+          />
+          
+          <div className="flex flex-col gap-1">
+            <span className="text-sm font-bold text-zinc-900 dark:text-zinc-100">{data.label}</span>
+            <span className="text-xs text-zinc-500">Course description or credits</span>
+          </div>
+    
+          {/* Source handle (Right) */}
+          <Handle 
+            type="source" 
+            position={Position.Right} 
+            className="w-3 h-3 bg-zinc-300 border-2 border-white dark:border-zinc-800 opacity-0 group-hover:opacity-100 transition-opacity" 
+          />
         </div>
-    )
+      );
 }
 
 export default CourseCard
