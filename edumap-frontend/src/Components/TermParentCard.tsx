@@ -5,9 +5,9 @@ function TermParentCard({ data, style }: NodeProps){
     const GAP = 12;
     const HEADER_SPACE = 50;
 
-    const currentHeight = typeof style?.height === 'number' ? style?.height : 800;
+    const currentHeight = typeof style?.height === 'number' ? style?.height : 700;
     const slotCount = Math.floor((currentHeight - HEADER_SPACE) / (COURSE_HEIGHT + GAP));
-    const slotArray = Array.from({length: Math.max(slotCount, 5)});
+    const slotArray = Array.from({length: Math.max(slotCount, 7)});
 
     return (
         <div style={{width: style?.width, height: style?.height}} className="w-full h-full bg-blue-50/50 dark:bg-blue-900/50 border-2 border-dashed border-zinc-300 dark:border-zinc-700 rounded-2xl relative">
