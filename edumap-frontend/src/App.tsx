@@ -4,13 +4,13 @@ import './GlobalStyles/App.css'
 import LandingPage from './LandingPage/LandingPage.tsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ThemeToggle from './Components/ThemeToggle.tsx'
-import ToggleLogic from './Hooks/ToggleLogic.tsx'
+import useToggleLogic from './Hooks/useToggleLogic.tsx'
 import BackgroundNorm from './Components/BackgroundNorm.tsx'
 import PlanningPage from './PlanningPage/PlanningPage.tsx'
 import PageWrapper from './PageWrapper.tsx'
 
 function App() {
-    const {currentTheme, setCurrentTheme} = ToggleLogic();
+    const {currentTheme, setCurrentTheme} = useToggleLogic();
 
   return (
     <PageWrapper>
