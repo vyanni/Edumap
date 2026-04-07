@@ -56,6 +56,12 @@
   }
 }
 
+.react-flow__node.selected {
+   border-radius: 12px;
+   box-shadow: 20 20 20px rgba(236, 72, 153, 0.4);
+   border: 2px solid #ec4899 !important;
+}
+
 #root {
   margin: 0 auto;
   text-align: center;
