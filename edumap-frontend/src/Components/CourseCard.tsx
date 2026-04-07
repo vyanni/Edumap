@@ -7,7 +7,7 @@ function CourseCard({data}: NodeProps){
           <Handle 
             type="target" 
             position={Position.Left} 
-            className="w-3 h-3 bg-zinc-300 border-2 border-white dark:border-zinc-800 opacity-0 group-hover:opacity-100 transition-opacity" 
+            className={`opacity-0`} 
           />
           
           <div className="flex flex-col gap-1">
@@ -19,7 +19,7 @@ function CourseCard({data}: NodeProps){
           <Handle 
             type="source" 
             position={Position.Right} 
-            className="w-3 h-3 bg-zinc-300 border-2 border-white dark:border-zinc-800 opacity-0 group-hover:opacity-100 transition-opacity" 
+            className={`opacity-0`} 
           />
         </div>
       );
