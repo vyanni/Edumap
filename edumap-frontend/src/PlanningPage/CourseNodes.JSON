@@ -1,0 +1,21 @@
+[
+  { "id": "1", "type": "course", "parentId": "1A", "slot": 1, "data": { "label": "SYDE101", "prerequisites": [] } },
+  { "id": "2", "type": "course", "parentId": "1A", "slot": 2, "data": { "label": "SYDE101L", "prerequisites": [] } },
+  { "id": "3", "type": "course", "parentId": "1A", "slot": 3, "data": { "label": "SYDE111", "prerequisites": [] } },
+  { "id": "4", "type": "course", "parentId": "1A", "slot": 4, "data": { "label": "SYDE113", "prerequisites": [] } },
+  { "id": "5", "type": "course", "parentId": "1A", "slot": 5, "data": { "label": "SYDE121", "prerequisites": [] } },
+  { "id": "6", "type": "course", "parentId": "1A", "slot": 6, "data": { "label": "SYDE161", "prerequisites": [] } },
+  { "id": "7", "type": "course", "parentId": "1A", "slot": 7, "data": { "label": "SYDE181", "prerequisites": [] } },
+  { "id": "8", "type": "course", "parentId": "1B", "slot": 1, "data": { "label": "SYDE114", "prerequisites": ["4"] } },
+  { "id": "9", "type": "course", "parentId": "1B", "slot": 2, "data": { "label": "SYDE192", "prerequisites": ["5"] } },
+  { "id": "10", "type": "course", "parentId": "2A", "slot": 1, "data": { "label": "SYDE211", "prerequisites": ["3"] } },
+  { "id": "11", "type": "course", "parentId": "2A", "slot": 2, "data": { "label": "SYDE223", "prerequisites": ["5"] } },
+  { "id": "12", "type": "course", "parentId": "2A", "slot": 3, "data": { "label": "SYDE261", "prerequisites": ["6"] } },
+  { "id": "13", "type": "course", "parentId": "2A", "slot": 4, "data": { "label": "SYDE263", "prerequisites": ["2"] } },
+  { "id": "14", "type": "course", "parentId": "2A", "slot": 5, "data": { "label": "SYDE283", "prerequisites": ["7"] } },
+  { "id": "15", "type": "course", "parentId": "2A", "slot": 6, "data": { "label": "SYDE285", "prerequisites": ["4"] } },
+  { "id": "16", "type": "course", "parentId": "2B", "slot": 1, "data": { "label": "SYDE212", "prerequisites": ["10"] } },
+  { "id": "17", "type": "course", "parentId": "2B", "slot": 2, "data": { "label": "SYDE252", "prerequisites": ["10", "8"] } },
+  { "id": "18", "type": "course", "parentId": "2B", "slot": 3, "data": { "label": "SYDE286", "prerequisites": ["7"] } },
+  { "id": "19", "type": "course", "parentId": "2B", "slot": 4, "data": { "label": "SYDE292", "prerequisites": ["14", "9"] } }
+]
