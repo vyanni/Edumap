@@ -24,10 +24,10 @@ function useSlotsLogic(){
 
             const courses: Node[] = courseData.map(course => {
                 const parent = terms.find(t => t.id === course.parentId);
-
                 const slotIndex = course.slot - 1;
+            
                 if (parent) {
-                    parent.data.slots[slotIndex] = course.id;
+                    (parent.data.slots as (string | null)[])[slotIndex] = course.id;
                 }
 
                 return {
@@ -38,7 +38,10 @@ function useSlotsLogic(){
                         x: 10, 
                         y: HEADER_SPACE + (slotIndex * SLOT_SIZE) 
                     },
-                    data: course.data
+                    data: {
+                        ...course.data,
+                        originalId: course.data.originalId || course.id 
+                    }
                 };
             });
 
@@ -55,7 +58,7 @@ function useSlotsLogic(){
    
         const { getIntersectingNodes } = useReactFlow();
    
-        const handleNodeDragStop = useCallback((event: any, draggedNode: Node) => {
+        const handleNodeDragStop = useCallback((draggedNode: Node) => {
             if (draggedNode.type !== 'course') return;
         
             const COURSE_HEIGHT = 80;
@@ -63,26 +66,28 @@ function useSlotsLogic(){
             const HEADER_SPACE = 50;
             const SLOT_SIZE = COURSE_HEIGHT + GAP;
         
-            const termNodes = allNodes.filter((n) => n.type === 'term');
-            const termIntersections = getIntersectingNodes(draggedNode, true, termNodes);
-        
             setNodes((currentNodes) => {
+                const termNodes = allNodes.filter((n) => n.type === 'term');
+                const termIntersections = getIntersectingNodes(draggedNode, true, termNodes);
+
                 const currentParentID = draggedNode.parentId;
                 const currentParentNode = currentNodes.find(n => n.id === currentParentID);
                 
-                if (!currentParentNode) return currentNodes;
-                const originalSlotIndex = currentParentNode.data.slots.indexOf(draggedNode.id);
-        
                 const targetTermNode = termIntersections.find(t => t.id !== currentParentID) || termIntersections[0] || currentParentNode;
-        
-                const worldY = (currentParentNode.position.y || 0) + draggedNode.position.y;
+                if(!targetTermNode) return currentNodes;
+
+                const currentParentNodeSlots = (currentParentNode?.data.slots as (string | null)[]) || [];
+                const originalSlotIndex = currentParentNodeSlots.indexOf(draggedNode.id);
+    
+                const worldY = currentParentNode ? currentParentNode.position.y + draggedNode.position.y : draggedNode.position.y;
                 const localY = worldY - targetTermNode.position.y;
         
                 let requestedSlot = Math.round((localY - HEADER_SPACE) / SLOT_SIZE);
-                const maxSlots = targetTermNode.data.slots?.length || 7;
+                const targetSlot = (targetTermNode.data.slots as (string|null)[]) || []
+                const maxSlots = targetSlot.length || 7;
                 requestedSlot = Math.max(0, Math.min(requestedSlot, maxSlots - 1));
         
-                const targetSlotOccupant = targetTermNode.data.slots[requestedSlot];
+                const targetSlotOccupant = targetSlot[requestedSlot];
                 const isSlotEmpty = targetSlotOccupant === null || targetSlotOccupant === draggedNode.id;
         
                 if (!isSlotEmpty) {
@@ -92,8 +97,7 @@ function useSlotsLogic(){
                             : node
                     );
                 }
-        
-                const allOtherNodes = currentNodes.filter(n => n.id !== draggedNode.id);
+    
                 const newRenderedCourse = {
                     ...draggedNode,
                     parentId: targetTermNode.id,
@@ -101,30 +105,32 @@ function useSlotsLogic(){
                 };
         
                 
-                const finalNodes = allOtherNodes.map((node) => {
+                return currentNodes.map((node) => {
+                    if(node.id === draggedNode.id) return newRenderedCourse;
+
                     if (node.id === currentParentID && node.id === targetTermNode.id) {
-                        const newSlots = [...(node.data.slots || [])];
-                        newSlots[originalSlotIndex] = null;
+                        const newSlots = [...((node.data.slots as string[]) || [])];
+                        if(originalSlotIndex !== -1) newSlots[originalSlotIndex] = null as any;
                         newSlots[requestedSlot] = draggedNode.id;
                         return { ...node, data: { ...node.data, slots: newSlots } };
                     }
+
                     if (node.id === currentParentID) {
-                        const newSlots = [...(node.data.slots || [])];
-                        newSlots[originalSlotIndex] = null;
+                        const newSlots = [...((node.data.slots as string[]) || [])];
+                        if(originalSlotIndex !== -1) newSlots[originalSlotIndex] = null as any;
                         return { ...node, data: { ...node.data, slots: newSlots } };
                     }
+
                     if (node.id === targetTermNode.id) {
-                        const newSlots = [...(node.data.slots || [])];
+                        const newSlots = [...((node.data.slots as string[]) || [])];
                         newSlots[requestedSlot] = draggedNode.id;
                         return { ...node, data: { ...node.data, slots: newSlots } };
                     }
+
                     return node;
                 });
-        
-                // 4. Push the new course node to the very end of the array
-                return [...finalNodes, newRenderedCourse];
             });
-        }, [getIntersectingNodes, setNodes, allNodes]);
+        }, [getIntersectingNodes, setNodes]);
 
    return {
     allNodes,
