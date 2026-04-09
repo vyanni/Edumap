@@ -5,7 +5,7 @@ function TermParentCard({ data, style }: NodeProps){
     const GAP = 12;
     const HEADER_SPACE = 50;
 
-    const currentHeight = typeof style?.height === 'number' ? style?.height : 800;
+    const currentHeight = typeof style?.height === 'number' ? style?.height : 700;
     const slotCount = Math.floor((currentHeight - HEADER_SPACE) / (COURSE_HEIGHT + GAP));
     const slotArray = Array.from({length: Math.max(slotCount, 7)});
 
