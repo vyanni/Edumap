@@ -170,7 +170,7 @@ function NodeCourseMap(){
 
             minZoom={0.5}
             maxZoom={1}
-            translateExtent={[[-2000, -1000], [4500, 1000]]}
+            translateExtent={[[-2000, -250], [4500, 1000]]}
 
             snapGrid={[0.5, 0.5]}
             snapToGrid={true}
