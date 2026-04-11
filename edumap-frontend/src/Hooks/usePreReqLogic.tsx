@@ -8,7 +8,6 @@ export function usePreReqLogic(
 ) {
     useEffect(() => {
         const newEdges: Edge[] = [];
-        let edgesChanged = false;
 
         // 1. Create a map of originalId -> current dynamic ID for quick lookup
         const idMap = new Map();
@@ -51,9 +50,6 @@ export function usePreReqLogic(
                 }
             });
         });
-
-        // 3. Simple comparison to prevent infinite re-render loops
-        // Only update if the number of edges changed or IDs are different
         const currentEdgeIds = allEdges.map(e => e.id).sort().join(',');
         const newEdgeIds = newEdges.map(e => e.id).sort().join(',');
 
@@ -61,5 +57,5 @@ export function usePreReqLogic(
             setEdges(newEdges);
         }
 
-    }, [allNodes, setEdges]); // Only depend on allNodes to recalculate when graph structure changes
+    }, [allNodes, setEdges]);
 }
