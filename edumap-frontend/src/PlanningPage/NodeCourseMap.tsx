@@ -14,8 +14,7 @@ import '../index.css'
 
 const initialEdges: Edge[] = []
 
-function NodeCourseMap(){
-    const {allNodes, nodeTypes, setNodes, onChangeNodes, handleNodeDragStop} = useSlotsLogic();
+function NodeCourseMap({setSelectedNode, allNodes, setNodes, onChangeNodes, nodeTypes}: any){
     const [allEdges, setEdges, onChangeEdges] = useEdgesState(initialEdges);
    
     const connectNodes = useCallback(
@@ -142,6 +141,80 @@ function NodeCourseMap(){
             return node;
         }));
     }, [setNodes]);
+  
+    const handleNodeDragStop = useCallback((draggedNode: Node) => {
+        if (draggedNode.type !== 'course') return;
+    
+        const COURSE_HEIGHT = 80;
+        const GAP = 12;
+        const HEADER_SPACE = 50;
+        const SLOT_SIZE = COURSE_HEIGHT + GAP;
+    
+        setNodes((currentNodes) => {
+            const termNodes = currentNodes.filter((n) => n.type === 'term');
+            const termIntersections = getIntersectingNodes(draggedNode, true, termNodes);
+
+            const currentParentID = draggedNode.parentId;
+            const currentParentNode = currentNodes.find(n => n.id === currentParentID);
+            
+            const targetTermNode = termIntersections.find(t => t.id !== currentParentID) || termIntersections[0] || currentParentNode;
+            if(!targetTermNode) return currentNodes;
+
+            const currentParentNodeSlots = (currentParentNode?.data.slots as (string | null)[]) || [];
+            const originalSlotIndex = currentParentNodeSlots.indexOf(draggedNode.id);
+
+            const worldY = currentParentNode ? currentParentNode.position.y + draggedNode.position.y : draggedNode.position.y;
+            const localY = worldY - targetTermNode.position.y;
+    
+            let requestedSlot = Math.round((localY - HEADER_SPACE) / SLOT_SIZE);
+            const targetSlot = (targetTermNode.data.slots as (string|null)[]) || []
+            const maxSlots = targetSlot.length || 7;
+            requestedSlot = Math.max(0, Math.min(requestedSlot, maxSlots - 1));
+    
+            const targetSlotOccupant = targetSlot[requestedSlot];
+            const isSlotEmpty = targetSlotOccupant === null || targetSlotOccupant === draggedNode.id;
+    
+            if (!isSlotEmpty) {
+                return currentNodes.map(node => 
+                    node.id === draggedNode.id 
+                        ? { ...node, position: { x: 10, y: HEADER_SPACE + (originalSlotIndex * SLOT_SIZE) } } 
+                        : node
+                );
+            }
+
+            const newRenderedCourse = {
+                ...draggedNode,
+                parentId: targetTermNode.id,
+                position: { x: 10, y: HEADER_SPACE + (requestedSlot * SLOT_SIZE) },
+            };
+    
+            
+            return currentNodes.map((node) => {
+                if(node.id === draggedNode.id) return newRenderedCourse;
+
+                if (node.id === currentParentID && node.id === targetTermNode.id) {
+                    const newSlots = [...((node.data.slots as string[]) || [])];
+                    if(originalSlotIndex !== -1) newSlots[originalSlotIndex] = null as any;
+                    newSlots[requestedSlot] = draggedNode.id;
+                    return { ...node, data: { ...node.data, slots: newSlots } };
+                }
+
+                if (node.id === currentParentID) {
+                    const newSlots = [...((node.data.slots as string[]) || [])];
+                    if(originalSlotIndex !== -1) newSlots[originalSlotIndex] = null as any;
+                    return { ...node, data: { ...node.data, slots: newSlots } };
+                }
+
+                if (node.id === targetTermNode.id) {
+                    const newSlots = [...((node.data.slots as string[]) || [])];
+                    newSlots[requestedSlot] = draggedNode.id;
+                    return { ...node, data: { ...node.data, slots: newSlots } };
+                }
+
+                return node;
+            });
+        });
+    }, [getIntersectingNodes, setNodes]);
 
     return (
         <div className={`h-full`}>
@@ -159,8 +232,8 @@ function NodeCourseMap(){
             onConnect={connectNodes}
             nodeTypes={nodeTypes}
 
-            onNodeClick={(_, node) => setActiveNodeID(node.id)}
-            onPaneClick={() => setActiveNodeID(null)}
+            onNodeClick={(_, node) => {setActiveNodeID(node.id); setSelectedNode(node)}}
+            onPaneClick={() => {setActiveNodeID(null); setSelectedNode(null)}}
 
             fitView
             proOptions={{ hideAttribution: true }}
@@ -170,7 +243,7 @@ function NodeCourseMap(){
 
             minZoom={0.5}
             maxZoom={1}
-            translateExtent={[[-2000, -250], [4500, 1000]]}
+            translateExtent={[[-500, -550], [4000, 1300]]}
 
             snapGrid={[0.5, 0.5]}
             snapToGrid={true}
@@ -188,10 +261,16 @@ function NodeCourseMap(){
 
 //export default NodeCourseMap
 
-export default function WrappedMap(){
+export default function WrappedMap({setSelectedNode, allNodes, setNodes, onChangeNodes, nodeTypes}: any){
     return (
         <ReactFlowProvider>
-            <NodeCourseMap></NodeCourseMap>
+            <NodeCourseMap 
+                setSelectedNode={setSelectedNode} 
+                allNodes={allNodes}
+                setNodes={setNodes} 
+                onChangeNodes={onChangeNodes} 
+                nodeTypes={nodeTypes}
+            ></NodeCourseMap>
         </ReactFlowProvider>
     )
 }
