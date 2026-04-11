@@ -67,7 +67,7 @@ function useSlotsLogic(){
             const SLOT_SIZE = COURSE_HEIGHT + GAP;
         
             setNodes((currentNodes) => {
-                const termNodes = allNodes.filter((n) => n.type === 'term');
+                const termNodes = currentNodes.filter((n) => n.type === 'term');
                 const termIntersections = getIntersectingNodes(draggedNode, true, termNodes);
 
                 const currentParentID = draggedNode.parentId;
