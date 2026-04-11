@@ -1,25 +1,97 @@
+import { useState, useEffect, useRef } from 'react';
 import { type NodeProps, Handle, Position, useNodes} from '@xyflow/react'
 
+const possibleOutcomes = [
+  {
+    value: 'Passed',
+    label: 'Passed',
+    color: 'bg-green-100'
+  },
+  {
+    value: 'Failed',
+    label: 'Failed',
+    color: 'bg-red-100'
+  },
+  {
+    value: 'in-progress',
+    label: 'In Progress',
+    color: 'bg-blue-100'
+  },
+  {
+    value: 'not-started',
+    label: 'Not Started',
+    color: 'bg-zinc-100'
+  }
+];
+
+type OutcomeValue = (typeof possibleOutcomes)[number]['value'];
+
 function CourseCard({data}: NodeProps){
+  const [isDropDownOpen, setDropDownOpen] = useState<boolean>(false);
+  const [selectedOutcome, setSelectedOutcome] = useState<OutcomeValue>('not-started');
+
   const allNodes = useNodes();
   const missingCourses = data.prerequisites?.filter((prereqID: string) => {
     return !allNodes.some((node) => node.data?.originalId === prereqID);
   }) || [];
 
   const isMissingCourses = missingCourses.length > 0;
+  const currentOutcome = possibleOutcomes.find(outcome => outcome.value === selectedOutcome);
+
+  const dropDownReference = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+      const clickOutside = (event: MouseEvent) => {
+          if(dropDownReference.current && !dropDownReference.current.contains(event.target as Node)){
+              setDropDownOpen(false);
+          }
+      };
+
+      document.addEventListener('mousedown', clickOutside, true);
+      return () => {document.removeEventListener('mousedown', clickOutside, true)};
+  }, []);
 
   return (
-    <div className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow min-w-[280px] group">
+    <div className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow w-[280px] group">
       <Handle 
         type="target" 
         position={Position.Left} 
         className={`opacity-0`} 
       />
       
-      <div className="flex flex-col gap-1">
-        <span className="text-sm font-bold text-zinc-900 dark:text-zinc-100">{data.label}</span>
-        {!isMissingCourses && (<span className="text-xs text-zinc-500">Course description or credits</span>)}
-        {isMissingCourses && (<span className="text-xs text-red-500">Missing a Prerequisite!</span>)}
+      <div className="flex flex-col gap-1 overflow-hidden">
+        <div className={`flex flex-row gap-2 justify-center items-center`}>
+          <span className="text-sm font-bold text-zinc-900 dark:text-zinc-100 shrink-0">{data.label}</span>
+
+          <div className={`flex flex-col`} ref={dropDownReference}>
+            <button className={`w-24 ${currentOutcome?.color} rounded-xl focus:outline-none text-xs`}
+                  onClick={() => setDropDownOpen(!isDropDownOpen)}
+                  title={`${currentOutcome.label}`}
+                  > {currentOutcome?.label} 
+            </button>
+
+            {isDropDownOpen && (
+                <div className={`mt-6 px-3 absolute z-[100] bg-zinc-100 border border-gray-100 flex flex-col
+                    max-h-60 overflow-y-auto gap-2`}>
+                
+                    {(possibleOutcomes.map((outcome) => (
+                            <button 
+                                className={`w-full text-center text-xs cursor-pointer`}
+                                onClick={() => {setSelectedOutcome(outcome.value); setDropDownOpen(false)}}
+                            > {outcome.label} 
+                            </button>
+                        ))
+                    )}
+                </div>
+            )}
+          </div>
+        </div>
+        {!isMissingCourses 
+        ? 
+        <div className={`flex flex-col leading-tight`}>
+          <span className="text-xs text-zinc-500 truncate font-medium" title={`${data.title}`}>{data.title} | {data.credits} Credits</span>
+        </div>
+        : (<span className="text-xs text-red-500">Missing a Prerequisite!</span>)}
       </div>
 
       <Handle 
