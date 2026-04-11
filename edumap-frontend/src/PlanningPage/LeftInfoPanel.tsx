@@ -41,7 +41,7 @@ function LeftInfoPanel({newCourses}: any){
                     onDragStart={(event) => onDragStart(event, course)}
                     draggable
                 >
-                    <div className="flex flex-col -gap-1">
+                    <div className="flex flex-col">
                         <span className="text-[10px] font-bold text-zinc-900 dark:text-zinc-100">{course.data?.label}</span>
                         <span className="text-[8px] text-zinc-500">Drag to add to schedule</span>
                     </div>
