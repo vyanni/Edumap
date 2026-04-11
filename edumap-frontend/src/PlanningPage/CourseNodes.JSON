@@ -1,21 +1,268 @@
 [
-  { "id": "1", "type": "course", "parentId": "1A", "slot": 1, "data": { "label": "SYDE101", "originalId": "1", "prerequisites": [] } },
-  { "id": "2", "type": "course", "parentId": "1A", "slot": 2, "data": { "label": "SYDE101L", "originalId": "2", "prerequisites": [] } },
-  { "id": "3", "type": "course", "parentId": "1A", "slot": 3, "data": { "label": "SYDE111", "originalId": "3", "prerequisites": [] } },
-  { "id": "4", "type": "course", "parentId": "1A", "slot": 4, "data": { "label": "SYDE113", "originalId": "4", "prerequisites": [] } },
-  { "id": "5", "type": "course", "parentId": "1A", "slot": 5, "data": { "label": "SYDE121", "originalId": "5", "prerequisites": [] } },
-  { "id": "6", "type": "course", "parentId": "1A", "slot": 6, "data": { "label": "SYDE161", "originalId": "6", "prerequisites": [] } },
-  { "id": "7", "type": "course", "parentId": "1A", "slot": 7, "data": { "label": "SYDE181", "originalId": "7", "prerequisites": [] } },
-  { "id": "8", "type": "course", "parentId": "1B", "slot": 1, "data": { "label": "SYDE114", "originalId": "8", "prerequisites": ["4"] } },
-  { "id": "9", "type": "course", "parentId": "1B", "slot": 2, "data": { "label": "SYDE192", "originalId": "9", "prerequisites": ["5"] } },
-  { "id": "10", "type": "course", "parentId": "2A", "slot": 1, "data": { "label": "SYDE211", "originalId": "10", "prerequisites": ["3"] } },
-  { "id": "11", "type": "course", "parentId": "2A", "slot": 2, "data": { "label": "SYDE223", "originalId": "11", "prerequisites": ["5"] } },
-  { "id": "12", "type": "course", "parentId": "2A", "slot": 3, "data": { "label": "SYDE261", "originalId": "12", "prerequisites": ["6"] } },
-  { "id": "13", "type": "course", "parentId": "2A", "slot": 4, "data": { "label": "SYDE263", "originalId": "13", "prerequisites": ["2"] } },
-  { "id": "14", "type": "course", "parentId": "2A", "slot": 5, "data": { "label": "SYDE283", "originalId": "14", "prerequisites": ["7"] } },
-  { "id": "15", "type": "course", "parentId": "2A", "slot": 6, "data": { "label": "SYDE285", "originalId": "15", "prerequisites": ["4"] } },
-  { "id": "16", "type": "course", "parentId": "2B", "slot": 1, "data": { "label": "SYDE212", "originalId": "16", "prerequisites": ["10"] } },
-  { "id": "17", "type": "course", "parentId": "2B", "slot": 2, "data": { "label": "SYDE252", "originalId": "17", "prerequisites": ["10", "8"] } },
-  { "id": "18", "type": "course", "parentId": "2B", "slot": 3, "data": { "label": "SYDE286", "originalId": "18", "prerequisites": ["7"] } },
-  { "id": "19", "type": "course", "parentId": "2B", "slot": 4, "data": { "label": "SYDE292", "originalId": "19", "prerequisites": ["14", "9"] } }
+  { 
+    "id": "009341", 
+    "type": "course", 
+    "parentId": "1A", 
+    "slot": 1, 
+    "data": { 
+      "label": "SYDE 101", 
+      "title": "Communications, Written & Oral",
+      "credits": 0.25,
+      "originalId": "009341", 
+      "prerequisites": [],
+      "antirequisites": ["BME 101"]
+    } 
+  },
+  { 
+    "id": "012857", 
+    "type": "course", 
+    "parentId": "1A", 
+    "slot": 2, 
+    "data": { 
+      "label": "SYDE 101L", 
+      "title": "Communications Visualization",
+      "credits": 0.25,
+      "originalId": "012857", 
+      "prerequisites": [],
+      "antirequisites": ["BME 101L"]
+    } 
+  },
+  { 
+    "id": "008925", 
+    "type": "course", 
+    "parentId": "1A", 
+    "slot": 3, 
+    "data": { 
+      "label": "SYDE 111", 
+      "title": "Calculus 1",
+      "credits": 0.50,
+      "originalId": "008925", 
+      "prerequisites": [],
+      "antirequisites": ["MATH 116", "117", "127", "137", "147"]
+    } 
+  },
+  { 
+    "id": "013144", 
+    "type": "course", 
+    "parentId": "1A", 
+    "slot": 4, 
+    "data": { 
+      "label": "SYDE 113", 
+      "title": "Engineering Mathematics",
+      "credits": 0.25,
+      "originalId": "013144", 
+      "prerequisites": [],
+      "antirequisites": []
+    } 
+  },
+  { 
+    "id": "008929", 
+    "type": "course", 
+    "parentId": "1A", 
+    "slot": 5, 
+    "data": { 
+      "label": "SYDE 121", 
+      "title": "Digital Computation",
+      "credits": 0.50,
+      "originalId": "008929", 
+      "prerequisites": [],
+      "antirequisites": ["BME 121", "CHE 121", "CIVE 121", "ECE 150", "MTE 121", "GENE 121"]
+    } 
+  },
+  { 
+    "id": "008933", 
+    "type": "course", 
+    "parentId": "1A", 
+    "slot": 6, 
+    "data": { 
+      "label": "SYDE 161", 
+      "title": "Introduction to Design",
+      "credits": 0.50,
+      "originalId": "008933", 
+      "prerequisites": [],
+      "antirequisites": ["BME 161"]
+    } 
+  },
+  { 
+    "id": "008934", 
+    "type": "course", 
+    "parentId": "1A", 
+    "slot": 7, 
+    "data": { 
+      "label": "SYDE 181", 
+      "title": "Physics 1: Statics",
+      "credits": 0.50,
+      "originalId": "008934", 
+      "prerequisites": [],
+      "antirequisites": ["BME 181"]
+    } 
+  },
+  { 
+    "id": "008928", 
+    "type": "course", 
+    "parentId": "1B", 
+    "slot": 1, 
+    "data": { 
+      "label": "SYDE 114", 
+      "title": "Matrices & Linear Systems",
+      "credits": 0.25,
+      "originalId": "008928", 
+      "prerequisites": ["013144"],
+      "antirequisites": []
+    } 
+  },
+  { 
+    "id": "008938", 
+    "type": "course", 
+    "parentId": "1B", 
+    "slot": 2, 
+    "data": { 
+      "label": "SYDE 192", 
+      "title": "Digital Systems",
+      "credits": 0.50,
+      "originalId": "008938", 
+      "prerequisites": ["008929"],
+      "antirequisites": ["BME 292", "BME 393"]
+    } 
+  },
+  { 
+    "id": "008939", 
+    "type": "course", 
+    "parentId": "2A", 
+    "slot": 1, 
+    "data": { 
+      "label": "SYDE 211", 
+      "title": "Calculus 3",
+      "credits": 0.50,
+      "originalId": "008939", 
+      "prerequisites": ["008925"],
+      "antirequisites": []
+    } 
+  },
+  { 
+    "id": "008957", 
+    "type": "course", 
+    "parentId": "2A", 
+    "slot": 2, 
+    "data": { 
+      "label": "SYDE 223", 
+      "title": "Data Structures & Algorithms",
+      "credits": 0.50,
+      "originalId": "008957", 
+      "prerequisites": ["008929"],
+      "antirequisites": ["BME 122", "CS 240", "ECE 250", "MTE 140"]
+    } 
+  },
+  { 
+    "id": "012861", 
+    "type": "course", 
+    "parentId": "2A", 
+    "slot": 3, 
+    "data": { 
+      "label": "SYDE 261", 
+      "title": "Design, Systems, & Society",
+      "credits": 0.50,
+      "originalId": "012861", 
+      "prerequisites": ["008933"],
+      "antirequisites": []
+    } 
+  },
+  { 
+    "id": "015792", 
+    "type": "course", 
+    "parentId": "2A", 
+    "slot": 4, 
+    "data": { 
+      "label": "SYDE 263", 
+      "title": "Engineering Prototyping",
+      "credits": 0.25,
+      "originalId": "015792", 
+      "prerequisites": ["012857"],
+      "antirequisites": []
+    } 
+  },
+  { 
+    "id": "008950", 
+    "type": "course", 
+    "parentId": "2A", 
+    "slot": 5, 
+    "data": { 
+      "label": "SYDE 283", 
+      "title": "Electricity, Magnetism & Optics",
+      "credits": 0.50,
+      "originalId": "008950", 
+      "prerequisites": ["008934"],
+      "antirequisites": ["BME 386"]
+    } 
+  },
+  { 
+    "id": "008936", 
+    "type": "course", 
+    "parentId": "2A", 
+    "slot": 6, 
+    "data": { 
+      "label": "SYDE 285", 
+      "title": "Materials Chemistry",
+      "credits": 0.50,
+      "originalId": "008936", 
+      "prerequisites": ["013144"],
+      "antirequisites": ["BME 282"]
+    } 
+  },
+  { 
+    "id": "013145", 
+    "type": "course", 
+    "parentId": "2B", 
+    "slot": 1, 
+    "data": { 
+      "label": "SYDE 212", 
+      "title": "Probability & Statistics",
+      "credits": 0.50,
+      "originalId": "013145", 
+      "prerequisites": ["008939"],
+      "antirequisites": ["BME 213", "CIVE 224", "ECE 316", "NE 115"]
+    } 
+  },
+  { 
+    "id": "008945", 
+    "type": "course", 
+    "parentId": "2B", 
+    "slot": 2, 
+    "data": { 
+      "label": "SYDE 252", 
+      "title": "Linear Systems & Signals",
+      "credits": 0.50,
+      "originalId": "008945", 
+      "prerequisites": ["008939", "008928"],
+      "antirequisites": ["BME 252"]
+    } 
+  },
+  { 
+    "id": "008948", 
+    "type": "course", 
+    "parentId": "2B", 
+    "slot": 3, 
+    "data": { 
+      "label": "SYDE 286", 
+      "title": "Mechanics of Deformable Solids",
+      "credits": 0.50,
+      "originalId": "008948", 
+      "prerequisites": ["008934"],
+      "antirequisites": ["BME 281", "CIVE 204", "ME 219"]
+    } 
+  },
+  { 
+    "id": "008952", 
+    "type": "course", 
+    "parentId": "2B", 
+    "slot": 4, 
+    "data": { 
+      "label": "SYDE 292", 
+      "title": "Circuits, Instrumentation, & Measurements",
+      "credits": 0.50,
+      "originalId": "008952", 
+      "prerequisites": ["008950", "008938"],
+      "antirequisites": ["BME 392"]
+    } 
+  }
 ]
