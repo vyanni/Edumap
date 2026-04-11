@@ -1,25 +1,6 @@
 
 import { useState, useMemo, useRef, useEffect, type ChangeEvent } from "react";
-
-const programsList = [
-    'Systems Design',
-    'Computer Science',
-    'Biomedical Engineering',
-    'Mechatronics',
-    'Theology',
-    'English',
-    'History',
-    'Animal Biology',
-    'Life Science',
-    'Overflow Test',
-    'Overflow Test',
-    'Overflow Test',
-    'Overflow Test',
-    'Overflow Test',
-    'Overflow Test',
-    'Overflow Test',
-    'Overflow Test',
-]
+import allMajors from '../PlanningPage/Major&Programs.json'
 
 function CourseSelector(){
     const [isDropDownOpen, setDropDownOpen] = useState<boolean>(false);
@@ -27,12 +8,13 @@ function CourseSelector(){
     const [selectedProgram, setSelectedProgram] = useState<string>('');
 
     const dropDownReference = useRef<HTMLDivElement>(null);
+    const allPrograms = Object.values(allMajors)
 
     const filteredPrograms = useMemo(() => {
-        return programsList.filter((program) => 
-            program.toLowerCase().includes(searchQuery.toLowerCase())
+        return allPrograms.filter((programName: any) => 
+            programName?.label?.toLowerCase().includes(searchQuery.toLowerCase())
         );
-    }, [searchQuery]);
+    }, [searchQuery, allPrograms]);
 
     useEffect(() => {
         const clickOutside = (event: MouseEvent) => {
@@ -85,11 +67,12 @@ function CourseSelector(){
                         {filteredPrograms.length > 0 ? (
                             filteredPrograms.map((program) => (
                                 <button 
+                                    key={program.label}
                                     className={`w-full text-center text-sm transition-colors
-                                        ${selectedProgram === program ? 'bg-gray-100 font-medium' : 'hover:bg-gray-50'}
+                                        ${selectedProgram === program.label ? 'bg-gray-100 font-medium' : 'hover:bg-gray-50'}
                                         cursor-pointer`}
-                                    onClick={() => handleSelection(program)}
-                                > {program} 
+                                    onClick={() => handleSelection(program.label)}
+                                > {program.label} 
                                 </button>
                             ))
                         ) : (
