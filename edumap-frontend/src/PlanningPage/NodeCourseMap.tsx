@@ -4,7 +4,7 @@ import  {Background,
         Controls, 
         useEdgesState,
         addEdge,
-        type Edge, ReactFlow, ReactFlowProvider, type Connection, MarkerType,
+        type Edge, ReactFlow, ReactFlowProvider, type Connection, MarkerType, type Node,
         useReactFlow} from '@xyflow/react'
 import { useCallback } from 'react';
 import useSlotsLogic from "../Hooks/useSlotsLogic";
@@ -47,42 +47,114 @@ function NodeCourseMap(){
 
     usePreReqLogic(allNodes, allEdges, setEdges);
 
-    const {screenToFlowPosition} = useReactFlow();
+    const {screenToFlowPosition, getIntersectingNodes} = useReactFlow();
     const onDropCourse = useCallback((event: React.DragEvent) => {
         event.preventDefault();
 
         const courseData = event.dataTransfer.getData('application/reactflow');
         if(!courseData) return;
-
         const courseInfo = JSON.parse(courseData);
 
-        const coursePos = screenToFlowPosition({
+        const position = screenToFlowPosition({
             x: event.clientX,
             y: event.clientY,
         });
 
-        const newCourse = {
-            id: courseInfo.id,
-            type: 'course',
-            coursePos,
-            data: {
-                label: courseInfo.label,
-                prerequisites: courseInfo.prerequisites || []
-            },
-        };
+        const intersectingNodes = getIntersectingNodes({x: position.x, y: position.y, width: 1, height: 1});
+        const targetTerm = intersectingNodes.find((node) => node.type === 'term');
 
-        setNodes((newNode) => newNode.concat(newCourse));
-    }, [screenToFlowPosition, setNodes]);
+        const COURSE_HEIGHT = 80;
+        const GAP = 12;
+        const HEADER_SPACE = 50;
+        const SLOT_SIZE = COURSE_HEIGHT + GAP;
+
+        setNodes((currentNodes) => {
+            const newCourseID = `${courseInfo.id}-${Date.now()}`;
+            let finalPosition = position;
+            let finalParentID: string | undefined = targetTerm ? targetTerm.id : undefined;
+            let updatedNodes = [...currentNodes]
+
+            if(targetTerm){
+                const localY = position.y - (targetTerm.position?.y || 0);
+
+                const termSlots = (targetTerm.data.slots as (string|null)[]) || null;
+                const maxSlots = Math.max(termSlots.length, 7);
+                let requestedSlot = Math.round((localY - HEADER_SPACE) / SLOT_SIZE);
+                requestedSlot = Math.max(0, Math.min(requestedSlot, maxSlots - 1));
+
+                const currentSlots = termSlots.length > 0 ? termSlots : new Array(maxSlots).fill(null);
+                if(currentSlots[requestedSlot] !== null){
+                    const emptyIndex = currentSlots.findIndex((slot: any) => slot === null);
+                    if(emptyIndex !== -1){
+                        requestedSlot = emptyIndex
+                    }else{
+                        finalParentID = undefined;
+                    }
+                }
+
+                if(finalParentID !== null){
+                    finalPosition = {
+                        x: 10,
+                        y: HEADER_SPACE + (requestedSlot * SLOT_SIZE)
+                    };
+
+                    updatedNodes = updatedNodes.map((node) => {
+                        if(node.id === targetTerm.id){
+                            const newSlots = [...currentSlots];
+                            newSlots[requestedSlot] = newCourseID;
+                            return {...node, data: {...node.data, slots: newSlots}};
+                        }
+                        return node;
+                    });
+                }
+            }
+
+            const newCourse = {
+                id: newCourseID,
+                type: 'course',
+                parentId: finalParentID,
+                position: finalPosition,
+                data: {
+                    ...courseInfo.data,
+                    originalId: courseInfo.data.originalId || courseInfo.id,
+                    prerequisites: courseInfo.data.prerequisites || []
+                },
+            };
+
+            return [...updatedNodes, newCourse];
+        });
+    }, [screenToFlowPosition, getIntersectingNodes, setNodes]);
+
+    const onNodesDelete = useCallback((deleted: Node[]) => {
+        const deletedCourseIDs = new Set(deleted.filter(n => n.type === 'course').map(n => n.id));
+        if (deletedCourseIDs.size === 0) return;
+
+        setNodes((nodes) => nodes.map(node => {
+            if(node.type === 'term' && node.data.slots){
+                const currentSlots = node.data.slots as (string | null)[];
+
+                const newSlots = currentSlots.map(slotID => 
+                    slotID && deletedCourseIDs.has(slotID) ? null : slotID
+                );
+
+                return {...node, data: {...node.data, slots: newSlots}};
+            }
+            return node;
+        }));
+    }, [setNodes]);
 
     return (
         <div className={`h-full`}>
         <ReactFlow
             nodes = {allNodes}
             edges = {activeEdgeStyles}
+            deleteKeyCode={["Backspace", "Delete"]}
+            onNodesDelete={onNodesDelete}
+            onDragOver={(event) => event.preventDefault()}
             onDrop={onDropCourse}
             onNodesChange={onChangeNodes}
             onNodeDragStart={(_, node) => setActiveNodeID(node.id)}
-            onNodeDragStop={handleNodeDragStop}
+            onNodeDragStop={(_, node) => handleNodeDragStop(node)}
             onEdgesChange={onChangeEdges}
             onConnect={connectNodes}
             nodeTypes={nodeTypes}
@@ -108,7 +180,7 @@ function NodeCourseMap(){
                 gap={20}
                 size={5} 
             />
-            <Controls position="bottom-left" className={`z-50`}/>
+            <Controls position="bottom-left" className={`z-50`} showInteractive={false} showFitView={false}/>
         </ReactFlow>
         </div>
     )
