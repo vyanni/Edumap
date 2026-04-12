@@ -22,30 +22,30 @@ function useSlotsLogic(){
                 }
             }));
 
-            const courses: Node[] = courseData.map(course => {
-                const parent = terms.find(t => t.id === course.parentId);
-                const slotIndex = course.slot - 1;
+            // const courses: Node[] = courseData.map(course => {
+            //     const parent = terms.find(t => t.id === course.parentId);
+            //     const slotIndex = course.slot - 1;
             
-                if (parent) {
-                    (parent.data.slots as (string | null)[])[slotIndex] = course.id;
-                }
+            //     if (parent) {
+            //         (parent.data.slots as (string | null)[])[slotIndex] = course.id;
+            //     }
 
-                return {
-                    id: course.id,
-                    type: 'course',
-                    parentId: course.parentId,
-                    position: { 
-                        x: 10, 
-                        y: HEADER_SPACE + (slotIndex * SLOT_SIZE) 
-                    },
-                    data: {
-                        ...course.data,
-                        originalId: course.data.originalId || course.id 
-                    }
-                };
-            });
+            //     return {
+            //         id: course.id,
+            //         type: 'course',
+            //         parentId: course.parentId,
+            //         position: { 
+            //             x: 10, 
+            //             y: HEADER_SPACE + (slotIndex * SLOT_SIZE) 
+            //         },
+            //         data: {
+            //             ...course.data,
+            //             originalId: course.data.originalId || course.id 
+            //         }
+            //     };
+            // });
 
-            return [...terms, ...courses];
+            return [...terms];
             
         }, []);
 
