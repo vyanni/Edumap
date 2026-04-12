@@ -15,10 +15,10 @@ function App() {
   return (
     <PageWrapper>
       <BackgroundNorm Theme={currentTheme} />
-      <ThemeToggle  
+      {/* <ThemeToggle  
       Theme = {currentTheme}
       setTheme = {setCurrentTheme}
-      />
+      /> */}
 
       <BrowserRouter>
         <Routes>
