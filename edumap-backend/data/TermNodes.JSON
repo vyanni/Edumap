@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1A",
+    "type": "term",
+    "position": { "x": 0, "y": 0 },
+    "data": {
+      "label": "1A",
+      "slots": ["1", null, null, null, null, null, null],
+      "season": null
+    },
+    "style": { "width": 300, "height": 800 },
+    "draggable": false,
+    "selectable": false,
+    "connectable": false,
+    "zIndex": -1
+  },
+  {
+    "id": "1B",
+    "type": "term",
+    "position": { "x": 450, "y": 0 },
+    "data": {
+      "label": "1B",
+      "slots": [null, null, "2", null, null, null, null],
+      "season": null
+    },
+    "style": { "width": 300, "height": 800 },
+    "draggable": false,
+    "selectable": false,
+    "connectable": false,
+    "zIndex": -1
+  },
+  {
+    "id": "2A",
+    "type": "term",
+    "position": { "x": 900, "y": 0 },
+    "data": {
+      "label": "2A",
+      "slots": [null, null, null, null, null, null, null],
+      "season": null
+    },
+    "style": { "width": 300, "height": 800 },
+    "draggable": false,
+    "selectable": false,
+    "connectable": false,
+    "zIndex": -1
+  },
+  {
+    "id": "2B",
+    "type": "term",
+    "position": { "x": 1350, "y": 0 },
+    "data": {
+      "label": "2B",
+      "slots": [null, null, null, null, null, null, null],
+      "season": null
+    },
+    "style": { "width": 300, "height": 800 },
+    "draggable": false,
+    "selectable": false,
+    "connectable": false,
+    "zIndex": -1
+  },
+  {
+    "id": "3A",
+    "type": "term",
+    "position": { "x": 1800, "y": 0 },
+    "data": {
+      "label": "3A",
+      "slots": [null, null, null, null, null, null, null],
+      "season": null
+    },
+    "style": { "width": 300, "height": 800 },
+    "draggable": false,
+    "selectable": false,
+    "connectable": false,
+    "zIndex": -1
+  },
+  {
+    "id": "3B",
+    "type": "term",
+    "position": { "x": 2250, "y": 0 },
+    "data": {
+      "label": "3B",
+      "slots": [null, null, null, null, null, null, null],
+      "season": null
+    },
+    "style": { "width": 300, "height": 800 },
+    "draggable": false,
+    "selectable": false,
+    "connectable": false,
+    "zIndex": -1
+  },
+  {
+    "id": "4A",
+    "type": "term",
+    "position": { "x": 2800, "y": 0 },
+    "data": {
+      "label": "4A",
+      "slots": [null, null, null, null, null, null, null],
+      "season": null
+    },
+    "style": { "width": 300, "height": 800 },
+    "draggable": false,
+    "selectable": false,
+    "connectable": false,
+    "zIndex": -1
+  },
+  {
+    "id": "4B",
+    "type": "term",
+    "position": { "x": 3150, "y": 0 },
+    "data": {
+      "label": "4B",
+      "slots": [null, null, null, null, null, null, null],
+      "season": null
+    },
+    "style": { "width": 300, "height": 800 },
+    "draggable": false,
+    "selectable": false,
+    "connectable": false,
+    "zIndex": -1
+  }
+]
