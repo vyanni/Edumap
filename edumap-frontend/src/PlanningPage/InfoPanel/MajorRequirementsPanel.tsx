@@ -1,4 +1,32 @@
-function MajorRequirementsPanel({currentCredits, activeMajor, missingCourses, onDragStart}: any){
+import { useMemo } from "react";
+
+function MajorRequirementsPanel({majorData, onDragStart, allNodes, newCourses}: any){
+    const activeMajor = majorData?.[0];
+
+    const missingCourses = useMemo(() => {
+        if (!activeMajor) return [];
+
+        const placedCourseIds = new Set(
+            allNodes
+                .filter(node => node.type === 'course')
+                .map(node => node.data?.originalId)
+        );
+
+        return newCourses.filter((course: any) => {
+            const isRequired = activeMajor.requiredCourses?.includes(course.id);
+            const isPlaced = placedCourseIds.has(course.id);
+            
+            return isRequired && !isPlaced;
+        });
+    }, [newCourses, allNodes, activeMajor]);
+
+    const currentCredits = useMemo(() => {
+        return allNodes
+            .filter((node: any) => node.type === 'course')
+            .reduce((total: number, node: any) => {
+                return total + (Number(node.data?.credits) || 0); 
+            }, 0);
+    }, [allNodes]);
 
     return (
     <div className={`flex flex-col items-center w-full flex-1 min-h-0`}>
@@ -26,7 +54,7 @@ function MajorRequirementsPanel({currentCredits, activeMajor, missingCourses, on
                 </div>
             ))}
 
-            {missingCourses.length === 0 && (
+            {missingCourses.length === 0 && currentCredits >= activeMajor.totalUnits && (
                 <span className="text-sm p-4 text-green-600 font-bold text-center">
                     All required courses placed!
                 </span>
