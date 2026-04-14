@@ -2,901 +2,321 @@
   {
     "id": "SYDE 101",
     "type": "course",
-    "parentId": "1A",
+    "parentId": null,
+    "Slot": 0,
     "data": {
       "label": "SYDE 101",
       "title": "Communications in Systems Design Engineering-Written and Oral",
+      "description": "Fundamental skills in written and oral communication for engineers.",
       "credits": 0.25,
       "minTerm": [1],
-      "neededMajor": [],
+      "neededMajor": ["Basc. Systems Design Engineering"],
       "prerequisites": [],
       "antirequisites": ["BME 101"],
-      "OR-requisites": []
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["F"]
     }
   },
   {
     "id": "SYDE 101L",
     "type": "course",
-    "parentId": "1A",
+    "parentId": null,
+    "Slot": 1,
     "data": {
       "label": "SYDE 101L",
       "title": "Communications in Systems Design Engineering-Visualization",
+      "description": "Graphical communication and visualization techniques.",
       "credits": 0.25,
       "minTerm": [1],
-      "neededMajor": [],
+      "neededMajor": ["Basc. Systems Design Engineering"],
       "prerequisites": [],
       "antirequisites": ["BME 101L"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 102",
-    "type": "course",
-    "parentId": "1B",
-    "data": {
-      "label": "SYDE 102",
-      "title": "Seminar",
-      "credits": 0.0,
-      "minTerm": [2],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["F"]
     }
   },
   {
     "id": "SYDE 111",
     "type": "course",
-    "parentId": "1A",
+    "parentId": null,
+    "Slot": 2,
     "data": {
       "label": "SYDE 111",
       "title": "Calculus 1",
+      "description": "Differential and integral calculus for functions of a single variable.",
       "credits": 0.5,
       "minTerm": [1],
-      "neededMajor": [],
+      "neededMajor": ["Basc. Systems Design Engineering"],
       "prerequisites": [],
       "antirequisites": ["MATH 116", "MATH 117", "MATH 127", "MATH 137", "MATH 147"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 112",
-    "type": "course",
-    "parentId": "1B",
-    "data": {
-      "label": "SYDE 112",
-      "title": "Calculus 2",
-      "credits": 0.5,
-      "minTerm": [2],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["MATH 118", "MATH 119", "MATH 128", "MATH 138", "MATH 148"],
-      "OR-requisites": []
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["F"]
     }
   },
   {
     "id": "SYDE 113",
     "type": "course",
-    "parentId": "1A",
+    "parentId": null,
+    "Slot": 3,
     "data": {
       "label": "SYDE 113",
       "title": "Elementary Engineering Mathematics",
+      "description": "Introductory mathematical concepts and techniques for engineering.",
       "credits": 0.25,
       "minTerm": [1],
-      "neededMajor": [],
+      "neededMajor": ["Basc. Systems Design Engineering"],
       "prerequisites": [],
       "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 114",
-    "type": "course",
-    "parentId": "1B",
-    "data": {
-      "label": "SYDE 114",
-      "title": "Matrices and Linear Systems",
-      "credits": 0.25,
-      "minTerm": [2],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["F"]
     }
   },
   {
     "id": "SYDE 121",
     "type": "course",
-    "parentId": "1A",
+    "parentId": null,
+    "Slot": 4,
     "data": {
       "label": "SYDE 121",
       "title": "Digital Computation",
+      "description": "Introduction to computer programming and problem solving.",
       "credits": 0.5,
       "minTerm": [1],
-      "neededMajor": [],
+      "neededMajor": ["Basc. Systems Design Engineering"],
       "prerequisites": [],
       "antirequisites": ["BME 121", "CHE 121", "CIVE 121", "ECE 150", "MTE 121", "GENE 121"],
-      "OR-requisites": []
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["F"]
     }
   },
   {
     "id": "SYDE 161",
     "type": "course",
-    "parentId": "1A",
+    "parentId": null,
+    "Slot": 5,
     "data": {
       "label": "SYDE 161",
       "title": "Introduction to Design",
+      "description": "Introduction to the engineering design process and systems thinking.",
       "credits": 0.5,
       "minTerm": [1],
-      "neededMajor": [],
+      "neededMajor": ["Basc. Systems Design Engineering"],
       "prerequisites": [],
       "antirequisites": ["BME 161"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 162",
-    "type": "course",
-    "parentId": "1B",
-    "data": {
-      "label": "SYDE 162",
-      "title": "Human Factors in Design",
-      "credits": 0.5,
-      "minTerm": [2],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 162"],
-      "OR-requisites": []
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["F"]
     }
   },
   {
     "id": "SYDE 181",
     "type": "course",
-    "parentId": "1A",
+    "parentId": null,
+    "Slot": 6,
     "data": {
       "label": "SYDE 181",
       "title": "Physics 1: Statics",
+      "description": "Analysis of forces and equilibrium in physical systems.",
       "credits": 0.5,
       "minTerm": [1],
-      "neededMajor": [],
+      "neededMajor": ["Basc. Systems Design Engineering"],
       "prerequisites": [],
       "antirequisites": ["BME 181"],
-      "OR-requisites": []
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["F"]
     }
   },
   {
-    "id": "SYDE 182",
+    "id": "SYDE 102",
     "type": "course",
-    "parentId": "2A",
+    "parentId": null,
+    "Slot": 0,
     "data": {
-      "label": "SYDE 182",
-      "title": "Physics 2: Dynamics",
-      "credits": 0.5,
-      "minTerm": [3],
-      "neededMajor": [],
+      "label": "SYDE 102",
+      "title": "Seminar",
+      "description": "Departmental seminar series.",
+      "credits": 0.0,
+      "minTerm": [2],
+      "neededMajor": ["Basc. Systems Design Engineering"],
       "prerequisites": [],
-      "antirequisites": ["BME 182"],
-      "OR-requisites": []
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["W"]
+    }
+  },
+  {
+    "id": "SYDE 112",
+    "type": "course",
+    "parentId": null,
+    "Slot": 1,
+    "data": {
+      "label": "SYDE 112",
+      "title": "Calculus 2",
+      "description": "Techniques and applications of integration and sequences.",
+      "credits": 0.5,
+      "minTerm": [2],
+      "neededMajor": ["Basc. Systems Design Engineering"],
+      "prerequisites": ["SYDE 111"],
+      "antirequisites": ["MATH 118", "MATH 119", "MATH 128", "MATH 138", "MATH 148"],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["W"]
+    }
+  },
+  {
+    "id": "SYDE 114",
+    "type": "course",
+    "parentId": null,
+    "Slot": 2,
+    "data": {
+      "label": "SYDE 114",
+      "title": "Matrices and Linear Systems",
+      "description": "Systems of linear equations, matrix algebra, and vector spaces.",
+      "credits": 0.25,
+      "minTerm": [2],
+      "neededMajor": ["Basc. Systems Design Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["W"]
+    }
+  },
+  {
+    "id": "SYDE 162",
+    "type": "course",
+    "parentId": null,
+    "Slot": 3,
+    "data": {
+      "label": "SYDE 162",
+      "title": "Human Factors in Design",
+      "description": "Study of human physical and cognitive capabilities in system design.",
+      "credits": 0.5,
+      "minTerm": [2],
+      "neededMajor": ["Basc. Systems Design Engineering"],
+      "prerequisites": [],
+      "antirequisites": ["BME 162"],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["W"]
     }
   },
   {
     "id": "SYDE 192",
     "type": "course",
-    "parentId": "1B",
+    "parentId": null,
+    "Slot": 4,
     "data": {
       "label": "SYDE 192",
       "title": "Digital Systems",
+      "description": "Analysis and design of digital logic circuits.",
       "credits": 0.5,
       "minTerm": [2],
-      "neededMajor": [],
+      "neededMajor": ["Basc. Systems Design Engineering"],
       "prerequisites": [],
       "antirequisites": ["BME 292", "BME 393"],
-      "OR-requisites": []
+      "corequisites": ["SYDE 192L"],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["W"]
     }
   },
   {
     "id": "SYDE 192L",
     "type": "course",
-    "parentId": "1B",
+    "parentId": null,
+    "Slot": 5,
     "data": {
       "label": "SYDE 192L",
       "title": "Digital Systems Laboratory",
+      "description": "Experimental studies in digital systems.",
       "credits": 0.25,
       "minTerm": [2],
-      "neededMajor": [],
+      "neededMajor": ["Basc. Systems Design Engineering"],
       "prerequisites": [],
       "antirequisites": ["BME 292L", "BME 393L"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 201",
-    "type": "course",
-    "parentId": "2A",
-    "data": {
-      "label": "SYDE 201",
-      "title": "Seminar",
-      "credits": 0.0,
-      "minTerm": [3],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 202",
-    "type": "course",
-    "parentId": "2B",
-    "data": {
-      "label": "SYDE 202",
-      "title": "Seminar",
-      "credits": 0.0,
-      "minTerm": [4],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 211",
-    "type": "course",
-    "parentId": "2A",
-    "data": {
-      "label": "SYDE 211",
-      "title": "Calculus 3",
-      "credits": 0.5,
-      "minTerm": [3],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 212",
-    "type": "course",
-    "parentId": "2B",
-    "data": {
-      "label": "SYDE 212",
-      "title": "Probability and Statistics",
-      "credits": 0.5,
-      "minTerm": [4],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 213", "CIVE 224", "ECE 316", "NE 115"],
-      "OR-requisites": []
+      "corequisites": ["SYDE 192"],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["W"]
     }
   },
   {
     "id": "SYDE 223",
     "type": "course",
-    "parentId": "1B",
+    "parentId": null,
+    "Slot": 6,
     "data": {
       "label": "SYDE 223",
       "title": "Data Structures and Algorithms",
+      "description": "Fundamental data structures and algorithm analysis.",
       "credits": 0.5,
       "minTerm": [2],
-      "neededMajor": [],
-      "prerequisites": [],
+      "neededMajor": ["Basc. Systems Design Engineering"],
+      "prerequisites": ["SYDE 121"],
       "antirequisites": ["BME 122", "CS 240", "ECE 250", "MTE 140"],
-      "OR-requisites": []
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["W"]
     }
   },
   {
     "id": "SYDE 252",
     "type": "course",
-    "parentId": "2B",
+    "parentId": null,
+    "Slot": 0,
     "data": {
       "label": "SYDE 252",
       "title": "Linear Systems and Signals",
+      "description": "Signals and systems in continuous and discrete time.",
       "credits": 0.5,
       "minTerm": [4],
-      "neededMajor": [],
-      "prerequisites": [],
+      "neededMajor": ["Basc. Systems Design Engineering"],
+      "prerequisites": ["SYDE 211"],
       "antirequisites": ["BME 252"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 261",
-    "type": "course",
-    "parentId": "2A",
-    "data": {
-      "label": "SYDE 261",
-      "title": "Design, Systems, and Society",
-      "credits": 0.5,
-      "minTerm": [3],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 262",
-    "type": "course",
-    "parentId": "2B",
-    "data": {
-      "label": "SYDE 262",
-      "title": "Engineering Economics of Design",
-      "credits": 0.5,
-      "minTerm": [4],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 364", "MSCI 261"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 263",
-    "type": "course",
-    "parentId": "2A",
-    "data": {
-      "label": "SYDE 263",
-      "title": "Engineering Prototyping",
-      "credits": 0.25,
-      "minTerm": [3],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 283",
-    "type": "course",
-    "parentId": "2A",
-    "data": {
-      "label": "SYDE 283",
-      "title": "Physics 3: Electricity, Magnetism and Optics",
-      "credits": 0.5,
-      "minTerm": [3],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 386"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 285",
-    "type": "course",
-    "parentId": "2A",
-    "data": {
-      "label": "SYDE 285",
-      "title": "Materials Chemistry",
-      "credits": 0.5,
-      "minTerm": [3],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 282"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 286",
-    "type": "course",
-    "parentId": "2B",
-    "data": {
-      "label": "SYDE 286",
-      "title": "Mechanics of Deformable Solids",
-      "credits": 0.5,
-      "minTerm": [4],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 281", "CIVE 204", "ME 219"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 292",
-    "type": "course",
-    "parentId": "2B",
-    "data": {
-      "label": "SYDE 292",
-      "title": "Circuits, Instrumentation, and Measurements",
-      "credits": 0.5,
-      "minTerm": [4],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 392"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 292L",
-    "type": "course",
-    "parentId": "2B",
-    "data": {
-      "label": "SYDE 292L",
-      "title": "Circuits, Instrumentation, and Measurements Laboratory",
-      "credits": 0.25,
-      "minTerm": [4],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 392L"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 301",
-    "type": "course",
-    "parentId": "3A",
-    "data": {
-      "label": "SYDE 301",
-      "title": "Seminar",
-      "credits": 0.0,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 302",
-    "type": "course",
-    "parentId": "3B",
-    "data": {
-      "label": "SYDE 302",
-      "title": "Seminar",
-      "credits": 0.0,
-      "minTerm": [6],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 312",
-    "type": "course",
-    "parentId": "3B",
-    "data": {
-      "label": "SYDE 312",
-      "title": "Applied Linear Algebra",
-      "credits": 0.5,
-      "minTerm": [6],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": ["S"]
     }
   },
   {
     "id": "SYDE 322",
     "type": "course",
-    "parentId": "TE",
+    "parentId": null,
+    "Slot": 0,
     "data": {
       "label": "SYDE 322",
       "title": "Software Design",
+      "description": "Object-oriented software design and software architecture.",
       "credits": 0.5,
       "minTerm": [5],
-      "neededMajor": [],
+      "neededMajor": ["Basc. Systems Design Engineering"],
       "prerequisites": ["SYDE 223"],
       "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 334",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 334",
-      "title": "Applied Statistics",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": ["SYDE 212"],
-      "antirequisites": ["STAT 331", "STAT 371"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 351",
-    "type": "course",
-    "parentId": "3A",
-    "data": {
-      "label": "SYDE 351",
-      "title": "Systems Models 1",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 352",
-    "type": "course",
-    "parentId": "3B",
-    "data": {
-      "label": "SYDE 352",
-      "title": "Introduction to Control Systems",
-      "credits": 0.5,
-      "minTerm": [6],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 353"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 352L",
-    "type": "course",
-    "parentId": "3B",
-    "data": {
-      "label": "SYDE 352L",
-      "title": "Control Systems Laboratory",
-      "credits": 0.25,
-      "minTerm": [6],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 353L"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 361",
-    "type": "course",
-    "parentId": "3A",
-    "data": {
-      "label": "SYDE 361",
-      "title": "Systems Design Methods 1: Needs Analysis and Prototyping",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 361"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 362",
-    "type": "course",
-    "parentId": "3B",
-    "data": {
-      "label": "SYDE 362",
-      "title": "Systems Design Methods 2: Testing, Verification, and Validation",
-      "credits": 0.5,
-      "minTerm": [6],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 362"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 381",
-    "type": "course",
-    "parentId": "3A",
-    "data": {
-      "label": "SYDE 381",
-      "title": "Thermodynamics",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 384", "MTE 309", "ME 250"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 383",
-    "type": "course",
-    "parentId": "3A",
-    "data": {
-      "label": "SYDE 383",
-      "title": "Fluid Mechanics",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 384", "ME 351"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 401",
-    "type": "course",
-    "parentId": "4A",
-    "data": {
-      "label": "SYDE 401",
-      "title": "Seminar",
-      "credits": 0.0,
-      "minTerm": [7],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 402",
-    "type": "course",
-    "parentId": "4B",
-    "data": {
-      "label": "SYDE 402",
-      "title": "Seminar",
-      "credits": 0.0,
-      "minTerm": [8],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 411",
-    "type": "course",
-    "parentId": "3B",
-    "data": {
-      "label": "SYDE 411",
-      "title": "Optimization and Numerical Methods",
-      "credits": 0.5,
-      "minTerm": [6],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 411"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 461",
-    "type": "course",
-    "parentId": "4A",
-    "data": {
-      "label": "SYDE 461",
-      "title": "Systems Design Capstone Project 1",
-      "credits": 0.5,
-      "minTerm": [7],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 461"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 462",
-    "type": "course",
-    "parentId": "4B",
-    "data": {
-      "label": "SYDE 462",
-      "title": "Systems Design Capstone Project 2",
-      "credits": 0.5,
-      "minTerm": [8],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BME 462"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 522",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 522",
-      "title": "Foundations of Artificial Intelligence",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": ["SYDE 223"],
-      "antirequisites": ["CS 480", "CS 486", "ECE 457A", "ECE 457B"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 531",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 531",
-      "title": "Design Optimization Under Probabilistic Uncertainty",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 532",
-    "type": "course",
-    "parentId": "4A",
-    "data": {
-      "label": "SYDE 532",
-      "title": "Introduction to Complex Systems",
-      "credits": 0.5,
-      "minTerm": [7],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 533",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 533",
-      "title": "Conflict Resolution",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 542",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 542",
-      "title": "Interface Design",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": ["SYDE 162"],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 543",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 543",
-      "title": "Cognitive Ergonomics",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 544",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 544",
-      "title": "Biomedical Measurement and Signal Processing",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": ["SYDE 584"],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 548",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 548",
-      "title": "User Centred Design Methods",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["CS 449", "MSCI 343"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 552",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 552",
-      "title": "Computational Neuroscience",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 553",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 553",
-      "title": "Advanced Dynamics",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 556",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 556",
-      "title": "Simulating Neurobiological Systems",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": ["SYDE 252"],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 572",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 572",
-      "title": "Introduction to Pattern Recognition",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 575",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 575",
-      "title": "Image Processing",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": ["SYDE 252"],
-      "antirequisites": [],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 584",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 584",
-      "title": "Physiological Systems and Biomedical Design",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": ["BIOL 273", "BME 284"],
-      "OR-requisites": []
-    }
-  },
-  {
-    "id": "SYDE 599",
-    "type": "course",
-    "parentId": "TE",
-    "data": {
-      "label": "SYDE 599",
-      "title": "Special Topics in Systems Design Engineering",
-      "credits": 0.5,
-      "minTerm": [5],
-      "neededMajor": [],
-      "prerequisites": [],
-      "antirequisites": [],
-      "OR-requisites": []
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": ["SYDE-TE"],
+      "previouslyOffered": ["F", "W", "S"]
     }
   }
 ]

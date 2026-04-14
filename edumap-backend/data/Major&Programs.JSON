@@ -1,9 +1,17 @@
 [
   {
-    "label": "Systems Design Engineering",
+    "label": "Basc. Systems Design Engineering",
     "totalUnits": 21.63,
-    "cseCount": 3,
-    "teCount": 6,
+    "requiredElectives": [
+      ["CSE-C", 1],
+      ["CSE", 2],
+      ["SYDE-TE", 6]
+    ],
+    "invalidCombos": [
+      "Software Engineering Option",
+      "Mechatronics Option"
+    ],
+    "flexibleElective": ["CSE", "SYDE-TE"],
     "flexibleElectiveCount": 1,
     "requiredCourses": [
       "SYDE 101",
@@ -51,23 +59,9 @@
       "SYDE 462",
       "SYDE 411"
     ],
-    "technicalElectives": [
-      "SYDE 322",
-      "SYDE 334",
-      "SYDE 522",
-      "SYDE 531",
-      "SYDE 532",
-      "SYDE 533",
-      "SYDE 542",
-      "SYDE 543",
-      "SYDE 544",
-      "SYDE 548",
-      "SYDE 552",
-      "SYDE 553",
-      "SYDE 572",
-      "SYDE 575",
-      "SYDE 584",
-      "SYDE 599"
-    ]
+    "flags": {
+      "isHonours": [true, false],
+      "isCoop": [true, false]
+    }
   }
 ]
