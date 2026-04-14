@@ -5,21 +5,67 @@ export const getAllPrograms = async (req: Request, res: Response) => {
     try {
         const { data, error } = await supabase
             .from('programs')
-            .select('*');
+            .select('id, label, invalidCombos');
 
-        if(error){
-            console.error("DB Error:", error);
-            return res.status(400).json({ error: error.message });
-        }
+        if (error) return res.status(400).json({ error: error.message });
+
         res.status(200).json(data);
-
-    } catch (error) {
-        console.error("Server Error:", error);
-        res.status(500).json({ message: "Internal server error" });
+    } catch {
+        res.status(500).json({ message: "Error fetching programs." });
     }
 };
 
-// Add this to your programController.ts or a new requirementsController.ts
+export const getProgramByID = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+
+        const { data, error } = await supabase
+            .from('programs')
+            .select('*')
+            .eq('id', id)
+            .single();
+
+        if (error) return res.status(404).json({ error: error.message });
+
+        res.status(200).json(data);
+    } catch {
+        res.status(500).json({ message: "Error fetching program." });
+    }
+};
+
+export const createProgram = async (req: Request, res: Response) => {
+    try {
+        const { data, error } = await supabase
+            .from('programs')
+            .insert(req.body)
+            .select();
+
+        if (error) return res.status(400).json({ error: error.message });
+
+        res.status(201).json(data);
+    } catch {
+        res.status(500).json({ message: "Error creating program." });
+    }
+};
+
+export const updateProgram = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+
+        const { data, error } = await supabase
+            .from('programs')
+            .update(req.body)
+            .eq('id', id)
+            .select();
+
+        if (error) return res.status(400).json({ error: error.message });
+
+        res.status(200).json(data);
+    } catch {
+        res.status(500).json({ message: "Error updating program." });
+    }
+};
+
 export const getDegreeRequirements = async (req: Request, res: Response) => {
     try {
         const { majorId, optionId, minorId, specId } = req.query;
