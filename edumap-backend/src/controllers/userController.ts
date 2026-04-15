@@ -4,6 +4,10 @@ import { supabase } from '../database/dbClient.js';
 export const getUserData = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
+        const authenticatedUserId = (req as any).user.id;
+        if (id !== authenticatedUserId) {
+            return res.status(403).json({ message: "Unauthorized access to profile." });
+        }
 
         const { data, error } = await supabase
             .from('user_profiles')
@@ -25,6 +29,11 @@ export const saveUserData = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const { nodes, edges } = req.body;
+
+        const authenticatedUserId = (req as any).user.id;
+        if (id !== authenticatedUserId) {
+            return res.status(403).json({ message: "Unauthorized access to profile." });
+        }
 
         const { error } = await supabase
             .from('user_profiles')
@@ -50,7 +59,11 @@ export const saveUserSettings = async (req: Request, res: Response) => {
         const { id } = req.params;
         const { majorId, minorId, optionId, specId } = req.body;
 
-        // 1. Save settings
+        const authenticatedUserId = (req as any).user.id;
+        if (id !== authenticatedUserId) {
+            return res.status(403).json({ message: "Unauthorized access to profile." });
+        }
+
         const { error: updateError } = await supabase
             .from('user_profiles')
             .update({
@@ -94,5 +107,25 @@ export const saveUserSettings = async (req: Request, res: Response) => {
 
     } catch {
         res.status(500).json({ message: "Error saving user settings" });
+    }
+};
+
+export const createUser = async (req: Request, res: Response) => {
+    try {
+        const authenticatedUserId = (req as any).user.id;
+
+        const { data, error } = await supabase
+            .from('user_profiles')
+            .upsert({
+                id: authenticatedUserId, 
+                email: req.body.email 
+            }, { onConflict: 'id' })
+            .select();
+
+        if (error) return res.status(400).json({ error: error.message });
+
+        res.status(201).json(data);
+    } catch {
+        res.status(500).json({ message: "Error creating user." });
     }
 };
