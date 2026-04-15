@@ -1,20 +1,29 @@
 import { type Request, type Response } from 'express';
 import { supabase } from '../database/dbClient.js';
 
-export const getAllSpecializations = async (res: Response) => {
+export const getAllSpecializations = async (req: Request, res: Response) => {
     try {
-        const { data, error } = await supabase
+        const { program } = req.query;
+
+        let query = supabase
             .from('specializations')
-            .select('id, label');
+            .select('id, label, program');
+
+        if (program) {
+            query = query.eq('program', program);
+        }
+
+        const { data, error } = await query;
 
         if (error) return res.status(400).json({ error: error.message });
+
         res.status(200).json(data);
-    } 
-    
-    catch (error) { res.status(500).json({ message: `Error fetching specializations` }); }
+    } catch {
+        res.status(500).json({ message: "Error fetching specializations" });
+    }
 };
 
-export const geSpecializationsByID = async (req: Request, res: Response) => {
+export const getSpecializationsByID = async (req: Request, res: Response) => {
     try {
         const { data, error } = await supabase
             .from('specializations')
