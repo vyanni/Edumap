@@ -318,5 +318,885 @@
       "eligibleLists": ["SYDE-TE"],
       "previouslyOffered": ["F", "W", "S"]
     }
+  },
+  {
+    "id": "ECE 320",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "ECE 320",
+      "title": "Computer Architecture",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [6],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": ["CE-TE-LIST-1"],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 313",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "ECE 313",
+      "title": "Digital Signal Processing",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [6],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": ["CE-TE-LIST-2"],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 406",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "ECE 406",
+      "title": "Algorithm Design and Analysis",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [7, 8],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": ["CE-TE-LIST-3"],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "SYDE 552",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "SYDE 552",
+      "title": "Computational Neuroscience",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [7, 8],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": ["CE-TE-LIST-4"],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "BIOL 110",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "BIOL 110",
+      "title": "Biodiversity, Biomes, and Evolution",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": ["CE-NATURAL-SCIENCE"],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "CHEM 123",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "CHEM 123",
+      "title": "General Chemistry 2",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": ["CE-NATURAL-SCIENCE"],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "CS 137",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "CS 137",
+      "title": "Programming Principles",
+      "description": "Introduction to programming in C.",
+      "credits": 0.5,
+      "minTerm": [1],
+      "neededMajor": ["Basc. Software Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "CS 349",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "CS 349",
+      "title": "User Interfaces",
+      "description": "Introduction to user interface design.",
+      "credits": 0.5,
+      "minTerm": [6],
+      "neededMajor": ["Basc. Software Engineering"],
+      "prerequisites": [],
+      "antirequisites": ["CS 449", "MSE 343"],
+      "corequisites": [],
+      "ORrequisites": ["CS 449", "MSE 343"],
+      "eligibleLists": ["SE-UI-LIST"],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "SE 490",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "SE 490",
+      "title": "Design Project 1",
+      "description": "First part of the capstone design project.",
+      "credits": 0.5,
+      "minTerm": [7],
+      "neededMajor": ["Basc. Software Engineering"],
+      "prerequisites": [],
+      "antirequisites": ["GENE 403"],
+      "corequisites": [],
+      "ORrequisites": ["GENE 403"],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ENGL 109",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "ENGL 109",
+      "title": "Introduction to Academic Writing",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [1, 2, 3, 4, 5],
+      "neededMajor": ["Basc. Software Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": ["SE-UCR"],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "SCI 201",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "SCI 201",
+      "title": "Global Warming and Climate Change",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [],
+      "neededMajor": ["Basc. Software Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": ["SE-NATURAL-SCIENCE", "SUSTAINABILITY-LIST"],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "CS 444",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "CS 444",
+      "title": "Compiler Construction",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [7, 8],
+      "neededMajor": ["Basc. Software Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": ["SE-TE-LIST-1"],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 105",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "ECE 105",
+      "title": "Classical Mechanics",
+      "description": "Fundamental principles of classical mechanics.",
+      "credits": 0.5,
+      "minTerm": [1],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 150",
+    "type": "course",
+    "parentId": null,
+    "Slot": 1,
+    "data": {
+      "label": "ECE 150",
+      "title": "Fundamentals of Programming",
+      "description": "Introduction to computer programming and problem solving.",
+      "credits": 0.5,
+      "minTerm": [1],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 190",
+    "type": "course",
+    "parentId": null,
+    "Slot": 2,
+    "data": {
+      "label": "ECE 190",
+      "title": "Engineering Profession and Practice",
+      "description": "",
+      "credits": 0.25,
+      "minTerm": [1],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 198",
+    "type": "course",
+    "parentId": null,
+    "Slot": 3,
+    "data": {
+      "label": "ECE 198",
+      "title": "Project Studio",
+      "description": "",
+      "credits": 0.25,
+      "minTerm": [1],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "MATH 115",
+    "type": "course",
+    "parentId": null,
+    "Slot": 4,
+    "data": {
+      "label": "MATH 115",
+      "title": "Linear Algebra for Engineering",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [1],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "MATH 117",
+    "type": "course",
+    "parentId": null,
+    "Slot": 5,
+    "data": {
+      "label": "MATH 117",
+      "title": "Calculus 1 for Engineering",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [1],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "COMMST 192",
+    "type": "course",
+    "parentId": null,
+    "Slot": 6,
+    "data": {
+      "label": "COMMST 192",
+      "title": "Communication in the Engineering Profession",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [1],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": ["ENGL 192"],
+      "corequisites": [],
+      "ORrequisites": ["ENGL 192"],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 106",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "ECE 106",
+      "title": "Electricity and Magnetism",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [2],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 108",
+    "type": "course",
+    "parentId": null,
+    "Slot": 1,
+    "data": {
+      "label": "ECE 108",
+      "title": "Discrete Mathematics and Logic 1",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [2],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 124",
+    "type": "course",
+    "parentId": null,
+    "Slot": 2,
+    "data": {
+      "label": "ECE 124",
+      "title": "Digital Circuits and Systems",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [2],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 140",
+    "type": "course",
+    "parentId": null,
+    "Slot": 3,
+    "data": {
+      "label": "ECE 140",
+      "title": "Linear Circuits",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [2],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 192",
+    "type": "course",
+    "parentId": null,
+    "Slot": 4,
+    "data": {
+      "label": "ECE 192",
+      "title": "Engineering Economics and Impact on Society",
+      "description": "",
+      "credits": 0.25,
+      "minTerm": [2],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "MATH 119",
+    "type": "course",
+    "parentId": null,
+    "Slot": 5,
+    "data": {
+      "label": "MATH 119",
+      "title": "Calculus 2 for Engineering",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [2],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 109",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "ECE 109",
+      "title": "Materials Chemistry for Engineers",
+      "description": "",
+      "credits": 0.25,
+      "minTerm": [3],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 204",
+    "type": "course",
+    "parentId": null,
+    "Slot": 1,
+    "data": {
+      "label": "ECE 204",
+      "title": "Numerical Methods",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [3],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 222",
+    "type": "course",
+    "parentId": null,
+    "Slot": 2,
+    "data": {
+      "label": "ECE 222",
+      "title": "Digital Computers",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [3],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 240",
+    "type": "course",
+    "parentId": null,
+    "Slot": 3,
+    "data": {
+      "label": "ECE 240",
+      "title": "Electronic Circuits 1",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [3],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 250",
+    "type": "course",
+    "parentId": null,
+    "Slot": 4,
+    "data": {
+      "label": "ECE 250",
+      "title": "Algorithms and Data Structures",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [3],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 205",
+    "type": "course",
+    "parentId": null,
+    "Slot": 5,
+    "data": {
+      "label": "ECE 205",
+      "title": "Advanced Calculus 1 for Electrical and Computer Engineers",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [3],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": ["MATH 211"],
+      "corequisites": [],
+      "ORrequisites": ["MATH 211"],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 203",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "ECE 203",
+      "title": "Probability Theory and Statistics 1",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [4],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 207",
+    "type": "course",
+    "parentId": null,
+    "Slot": 1,
+    "data": {
+      "label": "ECE 207",
+      "title": "Signals and Systems",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [4],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 208",
+    "type": "course",
+    "parentId": null,
+    "Slot": 2,
+    "data": {
+      "label": "ECE 208",
+      "title": "Discrete Mathematics and Logic 2",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [4],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 224",
+    "type": "course",
+    "parentId": null,
+    "Slot": 3,
+    "data": {
+      "label": "ECE 224",
+      "title": "Embedded Microprocessor Systems",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [4],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 252",
+    "type": "course",
+    "parentId": null,
+    "Slot": 4,
+    "data": {
+      "label": "ECE 252",
+      "title": "Systems Programming and Concurrency",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [4],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 298",
+    "type": "course",
+    "parentId": null,
+    "Slot": 5,
+    "data": {
+      "label": "ECE 298",
+      "title": "Instrumentation and Prototyping Laboratory",
+      "description": "",
+      "credits": 0.25,
+      "minTerm": [4],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 318",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "ECE 318",
+      "title": "Communication Systems",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [5],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 327",
+    "type": "course",
+    "parentId": null,
+    "Slot": 1,
+    "data": {
+      "label": "ECE 327",
+      "title": "Digital Hardware Systems",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [5],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 350",
+    "type": "course",
+    "parentId": null,
+    "Slot": 2,
+    "data": {
+      "label": "ECE 350",
+      "title": "Real-Time Operating Systems",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [5],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 380",
+    "type": "course",
+    "parentId": null,
+    "Slot": 3,
+    "data": {
+      "label": "ECE 380",
+      "title": "Analog Control Systems",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [5],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 307",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "ECE 307",
+      "title": "Probability Theory and Statistics 2",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [6],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": [],
+      "corequisites": [],
+      "ORrequisites": [],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 498A",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "ECE 498A",
+      "title": "Engineering Design Project",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [7],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": [],
+      "antirequisites": ["GENE 403"],
+      "corequisites": [],
+      "ORrequisites": ["GENE 403"],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
+  },
+  {
+    "id": "ECE 498B",
+    "type": "course",
+    "parentId": null,
+    "Slot": 0,
+    "data": {
+      "label": "ECE 498B",
+      "title": "Engineering Design Project",
+      "description": "",
+      "credits": 0.5,
+      "minTerm": [8],
+      "neededMajor": ["Basc. Computer Engineering"],
+      "prerequisites": ["ECE 498A"],
+      "antirequisites": ["GENE 404"],
+      "corequisites": [],
+      "ORrequisites": ["GENE 404"],
+      "eligibleLists": [],
+      "previouslyOffered": []
+    }
   }
 ]

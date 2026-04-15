@@ -12,7 +12,7 @@
       "Mechatronics Option"
     ],
     "flexibleElective": ["CSE", "SYDE-TE"],
-    "flexibleElectiveCount": 1,
+    "flexibleElectiveCount": [1],
     "requiredCourses": [
       "SYDE 101",
       "SYDE 101L",
@@ -63,5 +63,62 @@
       "isHonours": [true, false],
       "isCoop": [true, false]
     }
+  },
+  {
+  "label": "Basc. Computer Engineering",
+  "totalUnits": 21.25,
+  "requiredElectives": [
+    ["CSE-C", 2],
+    ["CE-NATURAL-SCIENCE", 2],
+    ["CE-TE-1", 2],
+    ["CE-TE-3", 3],
+    ["CE-TE-4", 1],
+    ["CE-ETHICS", 1]
+  ],
+  "invalidCombos": [],
+  "flexibleElective": [["CSE-A", "CSE-D", "CSE-C"], ["CE-TE-1", "CE-TE-2"], ["CE-TE-1", "CE-TE-2", "CE-TE-3", "CE-TE-4", "CE-TE-5"]],
+  "flexibleElectiveCount": [1, 1, 1],
+  "requiredCourses": [
+    "ECE 105", "ECE 150", "ECE 190", "ECE 198", "MATH 115", "MATH 117", "ECE 106", 
+    "ECE 108", "ECE 124", "ECE 140", "ECE 192", "MATH 119", "ECE 109", "ECE 204", 
+    "ECE 222", "ECE 240", "ECE 250", "ECE 203", "ECE 207", "ECE 208", "ECE 224", 
+    "ECE 252", "ECE 298", "ECE 318", "ECE 327", "ECE 350", "ECE 380", "ECE 307"
+  ],
+  "flags": {
+    "isHonours": [true, false],
+    "isCoop": [true, false]
   }
+},
+{
+  "label": "Basc. Software Engineering",
+  "totalUnits": 21.50,
+  "requiredElectives": [
+    ["CSE-A", 1],
+    ["CSE-C", 1],
+    ["SE-NATURAL-SCIENCE", 3],
+    ["SE-UCR", 1],
+    ["SE-TE-1", 1], 
+    ["SE-TE-2", 2] 
+  ],
+  "invalidCombos": [],
+  "flexibleElective": [
+    ["SE-SUSTAINABILITY"], 
+    ["SE-TE-1", "SE-TE-2", "SE-TE-3"],
+    ["OPEN-ELECTIVE"]
+  ],
+  "flexibleElectiveCount": [1, 2, 2],
+  "requiredCourses": [
+    "CS 137", "CHE 102", "MATH 115", "MATH 117", "MATH 135", "SE 101",
+    "CS 138", "ECE 124", "ECE 140", "ECE 192", "MATH 119", "SE 102",
+    "CS 241", "ECE 222", "SE 201", "SE 212", "STAT 206",
+    "CS 240", "CS 247", "CS 348", "MATH 239", "SE 202",
+    "CS 341", "MATH 213", "SE 301", "SE 350", "SE 464", "SE 465",
+    "CS 343", "ECE 358", "SE 302", "SE 380", "SE 463",
+    "SE 401", "SE 402"
+  ],
+  "flags": {
+    "isHonours": [true, false],
+    "isCoop": [true, false]
+  }
+}
 ]
