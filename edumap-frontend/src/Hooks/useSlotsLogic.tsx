@@ -1,19 +1,49 @@
-import {type Node, 
-        useNodesState, 
-         useReactFlow} from '@xyflow/react'
+import {type Node, useNodesState} from '@xyflow/react'
 import CourseCard from "../Components/CourseCard";
 import TermParentCard from "../Components/TermParentCard";
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useGetCourses, useGetTerms } from './useDBCalls';
+import { fetchUserMap } from '../api/userApi';
 
-import termData from '../PlanningPage/TermNodes.json'
-import courseData from '../PlanningPage/CourseNodes.json'
-
-function useSlotsLogic(){
+function useSlotsLogic(userId?: string){
         const HEADER_SPACE = 50;
         const SLOT_SIZE = 92;
 
+        const [allCourses, setAllCourses] = useState<any[]>([]);
+        const [allTerms, setAllTerms] = useState<any[]>([]);
+        const [allNodes, setNodes, onChangeNodes] = useNodesState([]);
+        const [isLoading, setIsLoading] = useState<boolean>(true);
+
+        const [isProfileLoaded, setIsProfileLoaded] = useState<boolean>(false);
+
+        useGetCourses({setAllCourses, setIsLoading});
+        useGetTerms({setAllTerms, setIsLoading});
+
+        useEffect(() => {
+            const loadUserData = async () => {
+                if (!userId) {
+                    setIsProfileLoaded(true); // Not logged in, proceed to blank template
+                    return;
+                }
+
+                const userData = await fetchUserMap(userId);
+                
+                // If they have saved nodes, load them!
+                if (userData && userData.map_nodes && userData.map_nodes.length > 0) {
+                    setNodes(userData.map_nodes);
+                    // NOTE: If you manage edges here too, setEdges(userData.map_edges)
+                }
+                
+                setIsProfileLoaded(true); // Flag that we finished checking
+            };
+
+            loadUserData();
+        }, [userId, setNodes]);
+
         const initialNodes: Node[] = useMemo(() => {
-            const terms: Node[] = termData.map(term => ({
+            if (allTerms.length === 0) return [];
+
+            const terms: Node[] = allTerms.map(term => ({
                 ...term,
                 type: 'term',
                 data: {
@@ -22,9 +52,9 @@ function useSlotsLogic(){
                 }
             }));
 
-            // const courses: Node[] = courseData.map(course => {
+            // const courses: Node[] = allCourses.map(course => {
             //     const parent = terms.find(t => t.id === course.parentId);
-            //     const slotIndex = course.slot - 1;
+            //     const slotIndex = (course.data?.slot || 1) - 1;
             
             //     if (parent) {
             //         (parent.data.slots as (string | null)[])[slotIndex] = course.id;
@@ -47,9 +77,13 @@ function useSlotsLogic(){
 
             return [...terms];
             
-        }, []);
+        }, [allTerms, allCourses]);
 
-       const [allNodes, setNodes, onChangeNodes] = useNodesState(initialNodes);
+       useEffect(() => {
+            if (isProfileLoaded && allNodes.length === 0 && initialNodes.length > 0) {
+                setNodes(initialNodes);
+            }
+        }, [initialNodes, isProfileLoaded, allNodes.length, setNodes]);
    
         const nodeTypes = useMemo(() => ({
             course: CourseCard,
@@ -60,7 +94,8 @@ function useSlotsLogic(){
     allNodes,
     nodeTypes,
     setNodes,
-    onChangeNodes
+    onChangeNodes,
+    allCourses
    };
 }
 
