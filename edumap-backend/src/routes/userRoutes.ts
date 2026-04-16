@@ -1,23 +1,21 @@
 import { Router } from 'express';
-import { getAllCourses, getCourseByID, getElectives} from '../controllers/courseController.ts';
+import { createUser, getUserData, saveUserData, saveUserSettings } from '../controllers/userController.js';
 
 /**
  * User Routes:
  * 
  * The User Routes routes and controller files are meant for saving user's progress on their map, adding new user, deleting an account, etc
  * These routes are defined as:
- * (getElectives): Courses which are part of specific elective lists (CSE-A, ECE-TE, SOCIAL-SCIENCES, etc) GET Request
- * (getAllCourses): All courses in general for user searching | GET Request
- * (getCourseByID): One specific course by its ID/Course code | GET Request
+ * (getUserData): Obtaining the data on login
+ * (saveUserData): Saving the nodes/edges for the map every time it changes
+ * (saveUserSettings): Saving the major/minor/option/specialization for those changes, and compiling degree requirements
  */
 
 const router = Router();
 
-// When a GET request hits the base path (defined in server.ts), run getCourses
-router.get('/', getAllCourses);
-router.get('/:id', getCourseByID);
-router.get('/:electives', getElectives);
-//router.post('/:create', createCourse);
-//router.put('/update', updateCourse);
+router.get('/:id', getUserData);
+router.post('/', createUser);
+router.put('/:id', saveUserData);
+router.put('/:id/settings', saveUserSettings);
 
 export default router;
