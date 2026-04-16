@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { type NodeProps, Handle, Position, useNodes} from '@xyflow/react'
+import { type NodeProps, Handle, Position, useNodes, useReactFlow} from '@xyflow/react'
 
 const possibleOutcomes = [
   {
@@ -26,19 +26,34 @@ const possibleOutcomes = [
 
 type OutcomeValue = (typeof possibleOutcomes)[number]['value'];
 
-function CourseCard({data}: NodeProps){
+function CourseCard({id, data}: NodeProps){
   const [isDropDownOpen, setDropDownOpen] = useState<boolean>(false);
-  const [selectedOutcome, setSelectedOutcome] = useState<OutcomeValue>('not-started');
 
+  const { setNodes } = useReactFlow();
   const allNodes = useNodes();
+
   const missingCourses = data.prerequisites?.filter((prereqID: string) => {
     return !allNodes.some((node) => node.data?.originalId === prereqID);
   }) || [];
 
   const isMissingCourses = missingCourses.length > 0;
-  const currentOutcome = possibleOutcomes.find(outcome => outcome.value === selectedOutcome);
+
+  const currentOutcomeValue = data.outcome || 'not-started';
+  const currentOutcome = possibleOutcomes.find(outcome => outcome.value === currentOutcomeValue);
 
   const dropDownReference = useRef<HTMLDivElement>(null);
+
+  const updateOutcome = (newOutcome: string) => {
+      setNodes((nds) =>
+          nds.map((node) => {
+              if (node.id === id) {
+                  return { ...node, data: { ...node.data, outcome: newOutcome } };
+              }
+              return node;
+          })
+      );
+      setDropDownOpen(false);
+  };
   
   useEffect(() => {
       const clickOutside = (event: MouseEvent) => {
@@ -76,8 +91,9 @@ function CourseCard({data}: NodeProps){
                 
                     {(possibleOutcomes.map((outcome) => (
                             <button 
+                                key={outcome.value}
                                 className={`w-full text-center text-xs cursor-pointer`}
-                                onClick={() => {setSelectedOutcome(outcome.value); setDropDownOpen(false)}}
+                                onClick={() => {updateOutcome(outcome.value)}}
                             > {outcome.label} 
                             </button>
                         ))
