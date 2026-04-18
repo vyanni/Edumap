@@ -24,8 +24,6 @@ const possibleOutcomes = [
   }
 ];
 
-type OutcomeValue = (typeof possibleOutcomes)[number]['value'];
-
 function CourseCard({id, data}: NodeProps){
   const [isDropDownOpen, setDropDownOpen] = useState<boolean>(false);
 
