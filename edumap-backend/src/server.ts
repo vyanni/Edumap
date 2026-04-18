@@ -23,11 +23,9 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-// 1. PUBLIC
 app.use('/api/courses', courseRoutes);
 app.use('/api/programs', programRoutes);
 app.use('/api/terms', termRoutes);
-// app.use('/api/modifications', modRoutes); 
 
 // 2. THE AUTH WALL
 // This is a "Global" middleware for everything defined AFTER this point
