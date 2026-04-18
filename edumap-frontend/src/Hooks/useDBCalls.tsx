@@ -5,7 +5,11 @@ export function useGetCourses({setAllCourses, setIsLoading}: any){
         const fetchPrograms = async () => {
             try {
                 const response = await fetch('http://localhost:8000/api/courses');
-                if (!response.ok) throw new Error('Failed to fetch');
+                if (!response.ok) {
+                    const err = await response.json();
+                    console.error("Backend error:", err);
+                    throw new Error(err.error || 'Failed to save map');
+                }
                 
                 const data = await response.json();
                 setAllCourses(data);
@@ -25,7 +29,11 @@ export function useGetPrograms({setAllPrograms, setIsLoading}: any){
         const fetchPrograms = async () => {
             try {
                 const response = await fetch('http://localhost:8000/api/programs');
-                if (!response.ok) throw new Error('Failed to fetch');
+                if (!response.ok) {
+                    const err = await response.json();
+                    console.error("Backend error:", err);
+                    throw new Error(err.error || 'Failed to save map');
+                }
                 
                 const data = await response.json();
                 setAllPrograms(data);
@@ -50,7 +58,11 @@ export function useGetNewProgram({selectedProgramLabel, setActiveProgram, setIsL
             try {
                 // Use the label as the ID in the URL
                 const response = await fetch(`http://localhost:8000/api/programs/${encodeURIComponent(selectedProgramLabel)}`);
-                if (!response.ok) throw new Error('Failed to fetch details');
+                if (!response.ok) {
+                    const err = await response.json();
+                    console.error("Backend error:", err);
+                    throw new Error(err.error || 'Failed to save map');
+                }
                 
                 const data = await response.json();
                 
@@ -72,7 +84,11 @@ export function useGetTerms({setAllTerms, setIsLoading}: any){
         const fetchPrograms = async () => {
             try {
                 const response = await fetch('http://localhost:8000/api/terms');
-                if (!response.ok) throw new Error('Failed to fetch');
+                if (!response.ok) {
+                    const err = await response.json();
+                    console.error("Backend error:", err);
+                    throw new Error(err.error || 'Failed to save map');
+                }
                 
                 const data = await response.json();
                 setAllTerms(data);
