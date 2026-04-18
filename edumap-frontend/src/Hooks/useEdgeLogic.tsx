@@ -87,6 +87,7 @@ export function useEdgeLogic(
     return {
         styledEdges,
         onChangeEdges,
-        connectNodes
+        connectNodes,
+        setEdges
     };
 }
