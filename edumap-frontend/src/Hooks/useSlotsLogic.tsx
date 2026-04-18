@@ -3,11 +3,11 @@ import CourseCard from "../Components/CourseCard";
 import TermParentCard from "../Components/TermParentCard";
 import { useEffect, useMemo, useState } from 'react';
 import { useGetCourses, useGetTerms } from './useDBCalls';
-import { fetchUserMap } from '../api/userApi';
+import { fetchUserMap } from './useSaveMap';
 
 function useSlotsLogic(userId?: string){
-        const HEADER_SPACE = 50;
-        const SLOT_SIZE = 92;
+        // const HEADER_SPACE = 50;
+        // const SLOT_SIZE = 92;
 
         const [allCourses, setAllCourses] = useState<any[]>([]);
         const [allTerms, setAllTerms] = useState<any[]>([]);
@@ -22,19 +22,25 @@ function useSlotsLogic(userId?: string){
         useEffect(() => {
             const loadUserData = async () => {
                 if (!userId) {
-                    setIsProfileLoaded(true); // Not logged in, proceed to blank template
+                    setIsProfileLoaded(true);
                     return;
                 }
 
                 const userData = await fetchUserMap(userId);
                 
-                // If they have saved nodes, load them!
                 if (userData && userData.map_nodes && userData.map_nodes.length > 0) {
-                    setNodes(userData.map_nodes);
-                    // NOTE: If you manage edges here too, setEdges(userData.map_edges)
+                    setNodes(
+                    userData.map_nodes.map((node: any) => ({
+                        ...node,
+                        draggable: node.type === 'term' ? false : true,
+                        selectable: node.type === 'term' ? false : true,
+                        connectable: node.type === 'term' ? false : true,
+                        focusable: node.type === 'term' ? false : true,
+                    }))
+                    );
                 }
                 
-                setIsProfileLoaded(true); // Flag that we finished checking
+                setIsProfileLoaded(true);
             };
 
             loadUserData();
@@ -46,6 +52,10 @@ function useSlotsLogic(userId?: string){
             const terms: Node[] = allTerms.map(term => ({
                 ...term,
                 type: 'term',
+                draggable: false,
+                selectable: false,
+                connectable: false,
+                focusable: false,
                 data: {
                     ...term.data,
                     slots: new Array(7).fill(null)
