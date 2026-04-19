@@ -7,20 +7,21 @@ export function useAutosave(userId: string | undefined, nodes: any[], edges: any
     const [isSaving, setIsSaving] = useState(false);
 
     useEffect(() => {
-        // 1. Skip the very first render so we don't save a blank map immediately
+        if (!userId) {
+            setSaveStatus("");
+            return;
+        }
+
         if (isFirstRender.current) {
             isFirstRender.current = false;
             return;
         }
 
-        // 2. If no user is logged in, or the map is empty, do nothing
-        if (!userId || nodes.length === 0) return;
+        if (!userId) return;
 
-        // 3. Set UI to "Saving..."
         setIsSaving(true);
         setSaveStatus("Saving...");
 
-        // 4. Start the 1.5-second countdown timer
         const timer = setTimeout(async () => {
             try {
                 await saveMapState(userId, nodes, edges);
@@ -32,12 +33,10 @@ export function useAutosave(userId: string | undefined, nodes: any[], edges: any
             }
         }, 1500);
 
-        // 5. Cleanup: If the user moves a node before 1.5s is up, cancel the timer and restart it.
         return () => clearTimeout(timer);
         
-    }, [nodes, edges, userId]); // <-- Watch these for changes
+    }, [nodes, edges, userId]);
 
-    // Return the status so you can display it in the UI!
     return { saveStatus, isSaving };
 }
 
@@ -72,10 +71,10 @@ export async function saveMapState(userId: string, nodes: any[], edges: any[]) {
     }
 }
 
-export async function saveSettings(userId: string, settings: any) {
+export async function saveProgramSettings(userId: string, settings: any) {
     try {
         const headers = await getAuthHeaders();
-        const response = await fetch(`${BASE_URL}/${userId}/settings`, {
+        const response = await fetch(`http://localhost:8000/api/users/${userId}/settings`, {
             method: 'PUT',
             headers,
             body: JSON.stringify(settings)
@@ -101,5 +100,5 @@ export async function fetchUserMap(userId: string) {
     });
 
     if (!response.ok) return null;
-    return await response.json(); // Returns { id, email, map_nodes, map_edges, ... }
+    return await response.json();
 }
