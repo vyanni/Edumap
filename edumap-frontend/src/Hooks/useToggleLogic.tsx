@@ -5,8 +5,8 @@ function useToggleLogic(){
        const cachedTheme = localStorage.getItem('theme')
        if(cachedTheme === 'light' || cachedTheme === 'dark') return cachedTheme
        
-       const darkPreference = window.matchMedia('(prefers-color-scheme: dark)').matches;
-       return darkPreference ? 'dark' : 'light'; 
+       //const darkPreference = window.matchMedia('(prefers-color-scheme: dark)').matches;
+       return 'light'; 
     });
 
     useEffect(() => {
