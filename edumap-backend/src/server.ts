@@ -11,6 +11,7 @@ import courseRoutes from './routes/courseRoutes.js';
 import programRoutes from './routes/programRoutes.js';
 import termRoutes from './routes/termRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import testRoutes from './routes/testRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -22,6 +23,9 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(cookieParser());
+
+// Test routes (before auth)
+app.use('/api/test', testRoutes);
 
 app.use('/api/courses', courseRoutes);
 app.use('/api/programs', programRoutes);
