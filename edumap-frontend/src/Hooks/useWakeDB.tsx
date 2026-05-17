@@ -1,20 +1,23 @@
 import { useEffect } from 'react';
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { supabase } from '../Authentication/supabaseClient';
 
 export default function useWakeDB() {
   useEffect(() => {
-    // simple lightweight query to wake the DB
+    // lightweight query to wake the DB
+    // Using an anonymous query that doesn't require RLS policies
     supabase
-      .from('users')       // or any small table
-      .select('id')
+      .from('users')
+      .select('id', { count: 'exact', head: true })
       .limit(1)
       .then(() => {
         console.log('Supabase awakened');
       })
-      .catch(err => console.warn('Could not wake DB', err));
+      .catch(err => {
+        console.warn('Could not wake DB:', err);
+        // Try alternative method if regular query fails
+        supabase.auth.getSession()
+          .then(() => console.log('Supabase session check completed'))
+          .catch(e => console.warn('Supabase check failed:', e));
+      });
   }, []);
 }
