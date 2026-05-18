@@ -1,10 +1,11 @@
 import { useEffect } from "react";
+import API_BASE_URL from "../config/apiConfig";
 
 export function useGetCourses({setAllCourses, setIsLoading}: any){
     useEffect(() => {
         const fetchPrograms = async () => {
             try {
-                const response = await fetch('http://localhost:8000/api/courses');
+                const response = await fetch(`${API_BASE_URL}/api/courses`);
                 if (!response.ok) {
                     const err = await response.json();
                     console.error("Backend error:", err);
@@ -28,7 +29,7 @@ export function useGetPrograms({setAllPrograms, setIsLoading}: any){
     useEffect(() => {
         const fetchPrograms = async () => {
             try {
-                const response = await fetch('http://localhost:8000/api/programs');
+                const response = await fetch(`${API_BASE_URL}/api/programs`);
                 if (!response.ok) {
                     const err = await response.json();
                     console.error("Backend error:", err);
@@ -57,7 +58,7 @@ export function useGetNewProgram({selectedProgramLabel, setActiveProgram, setIsL
             setIsLoading(true);
             try {
                 // Use the label as the ID in the URL
-                const response = await fetch(`http://localhost:8000/api/programs/${encodeURIComponent(selectedProgramLabel)}`);
+                const response = await fetch(`${API_BASE_URL}/api/programs/${encodeURIComponent(selectedProgramLabel)}`);
                 if (!response.ok) {
                     const err = await response.json();
                     console.error("Backend error:", err);
@@ -83,7 +84,7 @@ export function useGetTerms({setAllTerms, setIsLoading}: any){
     useEffect(() => {
         const fetchPrograms = async () => {
             try {
-                const response = await fetch('http://localhost:8000/api/terms');
+                const response = await fetch(`${API_BASE_URL}/api/terms`);
                 if (!response.ok) {
                     const err = await response.json();
                     console.error("Backend error:", err);

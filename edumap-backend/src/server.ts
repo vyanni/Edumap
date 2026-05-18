@@ -39,6 +39,12 @@ app.use(authentication);
 app.use('/api/users', userRoutes);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Backend active on: http://localhost:${PORT}`);
-});
+
+// Only listen if not in Vercel serverless environment
+if (process.env.VERCEL !== '1') {
+    app.listen(PORT, () => {
+        console.log(`Backend active on: http://localhost:${PORT}`);
+    });
+}
+
+export default app;

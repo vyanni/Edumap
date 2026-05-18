@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { handleSignIn, handleSignUp } from "../Authentication/AuthLogic";
+import { handleSignIn, handleSignUp, handleOAuthSignIn } from "../Authentication/AuthLogic";
 
 function LandingMain() {
   const [userEmail, setUserEmail] = useState('');
@@ -26,6 +26,17 @@ function LandingMain() {
     } catch (error: any) {
       setErrorMessage(error.message || "An error occurred during authentication.");
     } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleOAuthClick = async (provider: 'google' | 'github' | 'discord') => {
+    setIsLoading(true);
+    setErrorMessage('');
+    try {
+      await handleOAuthSignIn(provider);
+    } catch (error: any) {
+      setErrorMessage(error.message || `Failed to sign in with ${provider}`);
       setIsLoading(false);
     }
   };
@@ -60,6 +71,7 @@ function LandingMain() {
                 placeholder={"Enter your email..."}
                 value={userEmail}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => setUserEmail(e.target.value)}
+                disabled={isLoading}
               />
 
               <input 
@@ -68,6 +80,7 @@ function LandingMain() {
                 className={`w-full p-2 bg-white border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:shadow-lg transition-all text-sm`}
                 value={userPassword}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => setUserPassword(e.target.value)}
+                disabled={isLoading}
               />
 
               <button 
@@ -78,13 +91,30 @@ function LandingMain() {
                 {isLoading ? 'Processing...' : (isLogin ? 'Log In' : 'Sign Up')}
               </button>
 
-              <div className={`flex flex-row mt-4 gap-1 justify-center`}>
+              <div className={`flex flex-row mt-2 gap-1 justify-center`}>
                 <p className={`text-xs text-gray-500`}>{isLogin ? "Need an account?" : "Already have an account?"}</p>
                 <button 
                   onClick={() => setIsLogin(!isLogin)}
+                  disabled={isLoading}
                   className="text-xs text-gray-500 hover:text-violet-500 hover:underline transition-colors text-center"
                 >
                   {isLogin ? "Sign up" : "Log in"}
+                </button>
+              </div>
+
+              <div className={`flex items-center gap-2 my-2`}>
+                <div className="flex-1 h-px bg-gray-300"></div>
+                <span className="text-xs text-gray-500">OR</span>
+                <div className="flex-1 h-px bg-gray-300"></div>
+              </div>
+
+              <div className={`flex flex-col gap-2`}>
+                <button
+                  onClick={() => handleOAuthClick('google')}
+                  disabled={isLoading}
+                  className={`text-xs w-full bg-white border border-gray-300 p-2 rounded-lg text-gray-700 justify-center items-center flex font-medium hover:bg-gray-50 transition-colors ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
+                  <span className="mr-2"></span> Sign in with Google
                 </button>
               </div>
           </div>

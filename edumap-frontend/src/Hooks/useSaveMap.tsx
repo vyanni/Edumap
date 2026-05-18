@@ -1,5 +1,6 @@
 import { supabase } from '../Authentication/supabaseClient.js';
 import { useEffect, useRef, useState } from 'react';
+import API_BASE_URL from '../config/apiConfig';
 
 export function useAutosave(userId: string | undefined, nodes: any[], edges: any[]) {
     const isFirstRender = useRef(true);
@@ -55,7 +56,7 @@ export async function saveMapState(userId: string, nodes: any[], edges: any[]) {
         const token = session?.access_token;
 
         if (!token) return;
-        const response = await fetch(`http://localhost:8000/api/users/${userId}`, {
+        const response = await fetch(`${API_BASE_URL}/api/users/${userId}`, {
             method: 'PUT',
             headers: {
             'Content-Type': 'application/json',
@@ -74,7 +75,7 @@ export async function saveMapState(userId: string, nodes: any[], edges: any[]) {
 export async function saveProgramSettings(userId: string, settings: any) {
     try {
         const headers = await getAuthHeaders();
-        const response = await fetch(`http://localhost:8000/api/users/${userId}/settings`, {
+        const response = await fetch(`${API_BASE_URL}/api/users/${userId}/settings`, {
             method: 'PUT',
             headers,
             body: JSON.stringify(settings)
@@ -91,7 +92,7 @@ export async function fetchUserMap(userId: string) {
 
     if (!token) return null;
 
-    const response = await fetch(`http://localhost:8000/api/users/${userId}`, {
+    const response = await fetch(`${API_BASE_URL}/api/users/${userId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

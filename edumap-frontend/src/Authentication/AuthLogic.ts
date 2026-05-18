@@ -1,4 +1,5 @@
 import { supabase } from "./supabaseClient";
+import API_BASE_URL from "../config/apiConfig";
 
 export const handleSignUp = async (userEmail: string, userPassword: string) => {
   const { data, error } = await supabase.auth.signUp({
@@ -14,7 +15,7 @@ export const handleSignUp = async (userEmail: string, userPassword: string) => {
     const token = data.session.access_token;
 
     // 2. Call your Express backend to create the row in 'user_profiles'
-    await fetch('http://localhost:8000/api/users', {
+    await fetch(`${API_BASE_URL}/api/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,6 +42,61 @@ export const handleSignIn = async (userEmail: string, userPassword: string) => {
   return data;
 };
 
+// OAuth methods
+export const handleOAuthSignIn = async (provider: 'google' | 'github' | 'discord') => {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: provider,
+    options: {
+      redirectTo: `${window.location.origin}/auth/callback`,
+      queryParams: {
+        access_type: 'offline',
+        prompt: 'consent',
+      },
+    },
+  });
+
+  if (error) {
+    console.error(`OAuth sign in error with ${provider}:`, error.message);
+    throw new Error(`Failed to sign in with ${provider}: ${error.message}`);
+  }
+
+  return data;
+};
+
+export const handleOAuthCallback = async () => {
+  const { data: { session }, error } = await supabase.auth.getSession();
+  
+  if (error) {
+    console.error('OAuth callback error:', error.message);
+    throw new Error(error.message);
+  }
+
+  if (session && session.user) {
+    const token = session.access_token;
+    const user = session.user;
+
+    // Call your Express backend to create the row in 'user_profiles'
+    try {
+      await fetch(`${API_BASE_URL}/api/users`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ 
+          id: user.id,
+          email: user.email 
+        })
+      });
+      console.log('User profile created from OAuth:', user.email);
+    } catch (err) {
+      console.error('Failed to create user profile:', err);
+    }
+  }
+
+  return session;
+};
+
 export async function getUserData() {
   const {data: {session}, error} = await supabase.auth.getSession();
 
@@ -51,7 +107,7 @@ export async function getUserData() {
 
   const token = session.access_token;
 
-  const response = await fetch('http://localhost:8000/api/secure-route', {
+  const response = await fetch(`${API_BASE_URL}/api/secure-route`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
