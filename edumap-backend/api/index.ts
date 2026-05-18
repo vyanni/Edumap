@@ -41,11 +41,5 @@ app.get('/', (req, res) => {
   res.json({ status: 'ok', message: 'Edumap API is running' });
 });
 
-// Start server for local development
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-  console.log(`Backend active on: http://localhost:${PORT}`);
-});
-
 // Export the app for Vercel
-module.exports = app;
+export default app;
