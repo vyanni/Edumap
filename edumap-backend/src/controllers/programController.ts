@@ -1,34 +1,57 @@
 import { type Request, type Response } from 'express';
 import { supabase } from '../database/dbClient.js';
+import { loadProgramsData, getProgramByLabel as getLocalProgram } from '../database/localDataLoader.js';
 
 export const getAllPrograms = async (req: Request, res: Response) => {
     try {
-        const { data, error } = await supabase
-            .from('programs')
-            .select('*');
+        try {
+            const { data, error } = await supabase
+                .from('programs')
+                .select('*');
 
-        if (error) return res.status(400).json({ error: error.message });
-
-        res.status(200).json(data);
-    } catch {
-        res.status(500).json({ message: "Error fetching programs." });
+            if (error) throw error;
+            return res.status(200).json(data);
+        } catch (supabaseError) {
+            console.warn('Supabase error, falling back to local data:', supabaseError);
+            const localData = loadProgramsData();
+            return res.status(200).json(localData);
+        }
+    } catch (error) {
+        console.error('getAllPrograms error:', error);
+        const localData = loadProgramsData();
+        res.status(200).json(localData);
     }
 };
 
 export const getProgramByID = async (req: Request, res: Response) => {
     try {
         const { id } = req.params; // This will be the label (e.g., "Software Engineering")
-        const decodedLabel = decodeURIComponent(id);
+        
+        if (!id) {
+            return res.status(400).json({ error: 'Program ID is required' });
+        }
+        
+        const decodedLabel = decodeURIComponent(id as string);
 
-        const { data, error } = await supabase
-            .from('programs')
-            .select('*')
-            .eq('label', decodedLabel) // Querying the 'label' column specifically
-            .single();
+        try {
+            const { data, error } = await supabase
+                .from('programs')
+                .select('*')
+                .eq('label', decodedLabel)
+                .single();
 
-        if (error) return res.status(404).json({ error: error.message });
-        res.status(200).json(data);
-    } catch {
+            if (error) throw error;
+            return res.status(200).json(data);
+        } catch (supabaseError) {
+            console.warn('Supabase error, falling back to local data:', supabaseError);
+            const program = getLocalProgram(decodedLabel);
+            if (program) {
+                return res.status(200).json(program);
+            }
+            return res.status(404).json({ error: `Program ${decodedLabel} not found` });
+        }
+    } catch (error) {
+        console.error('getProgramByID error:', error);
         res.status(500).json({ message: "Error fetching program." });
     }
 };

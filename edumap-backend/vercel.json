@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build:prod",
+  "outputDirectory": "dist",
+  "functions": {
+    "src/server.ts": {
+      "maxDuration": 10,
+      "memory": 1024
+    }
+  }
+}
