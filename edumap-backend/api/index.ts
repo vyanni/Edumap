@@ -1,3 +1,4 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -21,7 +22,7 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-// Import routes
+// Import routes  
 import courseRoutes from '../src/routes/courseRoutes.js';
 import programRoutes from '../src/routes/programRoutes.js';
 import termRoutes from '../src/routes/termRoutes.js';
@@ -41,5 +42,7 @@ app.get('/', (req, res) => {
   res.json({ status: 'ok', message: 'Edumap API is running' });
 });
 
-// Export the app for Vercel
-export default app;
+// Vercel serverless handler
+export default (req: VercelRequest, res: VercelResponse) => {
+  return app(req, res);
+};
