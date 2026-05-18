@@ -23,12 +23,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Import routes
-import courseRoutes from '../src/routes/courseRoutes.js';
-import programRoutes from '../src/routes/programRoutes.js';
-import termRoutes from '../src/routes/termRoutes.js';
-import userRoutes from '../src/routes/userRoutes.js';
-import testRoutes from '../src/routes/testRoutes.js';
-import { authentication } from '../src/middleware/authentication.js';
+import courseRoutes from '../dist/routes/courseRoutes.js';
+import programRoutes from '../dist/routes/programRoutes.js';
+import termRoutes from '../dist/routes/termRoutes.js';
+import userRoutes from '../dist/routes/userRoutes.js';
+import testRoutes from '../dist/routes/testRoutes.js';
+import { authentication } from '../dist/middleware/authentication.js';
 
 app.use('/api/courses', courseRoutes);
 app.use('/api/programs', programRoutes);
