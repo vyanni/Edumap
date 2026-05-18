@@ -25,8 +25,7 @@
   "scripts": {
     "seed": "ts-node src/scripts/seed.ts",
     "dev": "nodemon --exec tsx src/server.ts",
-    "build": "tsc --noEmit",
-    "build:prod": "tsc",
-    "start": "node dist/server.js"
+    "build": "tsc",
+    "start": "node api/index.js"
   }
 }
