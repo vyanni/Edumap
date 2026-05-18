@@ -22,13 +22,13 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-// Import routes - these now use relative imports
-import courseRoutes from '../../dist/routes/courseRoutes.js';
-import programRoutes from '../../dist/routes/programRoutes.js';
-import termRoutes from '../../dist/routes/termRoutes.js';
-import userRoutes from '../../dist/routes/userRoutes.js';
-import testRoutes from '../../dist/routes/testRoutes.js';
-import { authentication } from '../../dist/middleware/authentication.js';
+// Import routes from src (Vercel will compile them)
+import courseRoutes from '../src/routes/courseRoutes.js';
+import programRoutes from '../src/routes/programRoutes.js';
+import termRoutes from '../src/routes/termRoutes.js';
+import userRoutes from '../src/routes/userRoutes.js';
+import testRoutes from '../src/routes/testRoutes.js';
+import { authentication } from '../src/middleware/authentication.js';
 
 app.use('/courses', courseRoutes);
 app.use('/programs', programRoutes);
