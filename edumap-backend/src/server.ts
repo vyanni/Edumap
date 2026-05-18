@@ -17,7 +17,12 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: [
+        "http://localhost:5173",
+        "http://localhost:3000",
+        /\.vercel\.app$/,  // Allow all Vercel domains
+        /^https:\/\/edumap/  // Allow edumap frontend domains
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
