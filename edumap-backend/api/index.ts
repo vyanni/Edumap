@@ -1,4 +1,3 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -22,7 +21,7 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-// Import routes from src (Vercel will compile them)
+// Import routes
 import courseRoutes from '../src/routes/courseRoutes.js';
 import programRoutes from '../src/routes/programRoutes.js';
 import termRoutes from '../src/routes/termRoutes.js';
@@ -30,18 +29,23 @@ import userRoutes from '../src/routes/userRoutes.js';
 import testRoutes from '../src/routes/testRoutes.js';
 import { authentication } from '../src/middleware/authentication.js';
 
-app.use('/courses', courseRoutes);
-app.use('/programs', programRoutes);
-app.use('/terms', termRoutes);
-app.use('/test', testRoutes);
+app.use('/api/courses', courseRoutes);
+app.use('/api/programs', programRoutes);
+app.use('/api/terms', termRoutes);
+app.use('/api/test', testRoutes);
 app.use(authentication);
-app.use('/users', userRoutes);
+app.use('/api/users', userRoutes);
 
 // Root health check
 app.get('/', (req, res) => {
   res.json({ status: 'ok', message: 'Edumap API is running' });
 });
 
-export default function handler(req: VercelRequest, res: VercelResponse) {
-  return app(req, res);
-}
+// Start server for local development
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Backend active on: http://localhost:${PORT}`);
+});
+
+// Export the app for Vercel
+module.exports = app;
