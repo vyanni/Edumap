@@ -9,3 +9,5 @@ dist/
 .idea/
 .env.development
 .env.production
+.vercel
+.env*.local
